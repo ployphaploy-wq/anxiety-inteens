@@ -542,6 +542,16 @@
     .mood-btn { font-size: 0.82rem; padding: 9px 12px; }
   }
 </style>
+  .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--mint); padding: 5px; }
+  @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .nav-links { 
+      display: none; position: absolute; top: 64px; left: 0; right: 0; 
+      background: white; flex-direction: column; padding: 20px; border-bottom: 1px solid var(--border);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .nav-links.active { display: flex; }
+  }
 </head>
 <body>
 
@@ -566,7 +576,7 @@
 <!-- ═══ NAVIGATION ════════════════════════════════════════ -->
 <nav id="main-nav" class="hidden">
   <div class="nav-inner">
-    <a href="javascript:void(0)" class="nav-logo" onclick="showPage('home')">🌿 <span>Anxiety in Teens</span></a>
+    <a href="javascript:void(0)" class="nav-logo" onclick="showPage('home')">🌿 <span>Anxiety in Teens</span></a><div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul class="nav-links">
       <li><a href="javascript:void(0)" onclick="showPage('home')">หน้าแรก</a></li>
       <li><a href="javascript:void(0)" onclick="showPage('assessment')">เช็กใจ</a></li>
@@ -580,7 +590,7 @@
 
 <!-- ═══ EMERGENCY BANNER ══════════════════════════════════ -->
 <div id="emergency-banner" class="emergency-banner hidden">
-  🆘 <strong>สายด่วนสุขภาพจิต 1323</strong> &nbsp;|&nbsp; กรมสุขภาพจิต <strong>1667</strong> &nbsp;|&nbsp; โทรฟรีตลอด 24 ชั่วโมง
+  🆘 <strong>สายด่วนสุขภาพจิต <a href="tel:1323" style="color:white; text-decoration:underline;">1323</a></strong> &nbsp;|&nbsp; กรมสุขภาพจิต <strong><a href="tel:1667" style="color:white; text-decoration:underline;">1667</a></strong> &nbsp;|&nbsp; โทรฟรีตลอด 24 ชั่วโมง
 </div>
 
 <!-- ═══ HOME PAGE ═════════════════════════════════════════ -->
@@ -731,11 +741,19 @@
       <h3 style="font-size:0.95rem;font-weight:600;color:var(--text-mid);margin-bottom:14px;">💬 วันนี้อยากระบายอะไรบ้าง?</h3>
       <textarea id="vent-message" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Sarabun',sans-serif;font-size:1rem;background:var(--cream);color:var(--text-dark);outline:none;resize:vertical;min-height:160px;line-height:1.8;transition:all 0.2s;" placeholder="พิมพ์ระบายได้เลยนะ... ไม่มีตัดสิน ไม่มีถูกผิด 🌿"></textarea>
       <button class="btn-assess" id="vent-submit-btn" onclick="submitVent()" style="width:100%;padding:15px;border:none;background:linear-gradient(135deg,var(--mint),var(--sky));color:white;border-radius:var(--radius-sm);font-family:'Sarabun',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;margin-top:12px;">ส่งความรู้สึก 🌸</button>
-      <div id="vent-result" style="display:none;margin-top:20px;padding:24px;background:var(--mint-pale);border-radius:var(--radius-sm);text-align:center;">
-        <p style="font-size:1.1rem;font-weight:600;color:var(--mint);margin-bottom:8px;">ขอบคุณที่ไว้ใจเราน้า 💙</p>
-        <p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:16px;">เราได้รับความรู้สึกของคุณแล้ว ขอเป็นกำลังใจให้คุณเสมอนะ 🌿</p>
-        <button onclick="showPage('home')" style="padding:12px 24px;border:none;background:linear-gradient(135deg,var(--mint),var(--sky));color:white;border-radius:var(--radius-sm);font-family:'Sarabun',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;margin:4px;">กลับหน้าแรก 🌿</button>
-        <button onclick="showPage('counseling')" style="padding:12px 24px;border:none;background:linear-gradient(135deg,var(--sky),var(--mint));color:white;border-radius:var(--radius-sm);font-family:'Sarabun',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;margin:4px;">ไปพื้นที่รับฟัง 🤝</button>
+      <div id="vent-result" style="display:none;margin-top:20px;padding:24px;background:var(--mint-pale);border-radius:var(--radius-sm);text-align:center;">r(--mint));color:whit
+       <p style="font-size:1.1rem; font-weight:600; color:var(--mint); margin-bottom:8px;">ส่งความรู้สึกเรียบร้อยแล้วนะ 💙</p>
+        <p style="font-size:0.88rem; color:var(--text-mid); margin-bottom:20px;">เราได้รับความรู้สึกของคุณแล้ว ขอเป็นกำลังใจให้คุณเสมอนะ 🌿</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- กล่องย่อยบน: กลับหน้าแรก -->
+            <button onclick="showPage('home')" style="width:100%; padding:14px; border:1px solid var(--mint); background:white; color:var(--mint); border-radius:12px; cursor:pointer; font-weight:600; font-family:'Sarabun',sans-serif;">
+               🏠 กลับไปหน้าแรก
+            </button>
+            <!-- กล่องย่อยล่าง: ไปพื้นที่รับฟัง -->
+            <button onclick="showPage('counseling')" style="width:100%; padding:14px; border:none; background:var(--mint); color:white; border-radius:12px; cursor:pointer; font-weight:600; font-family:'Sarabun',sans-serif;">
+               🤝 ไปที่พื้นที่รับฟัง
+            </button>
+        </div>
       </div>
     </div>
   </div>
@@ -858,14 +876,14 @@
             <span class="contact-card-icon">📞</span>
             <div class="contact-card-text">
               <strong>สายด่วนสุขภาพจิต</strong>
-              <span>1323 — โทรฟรีตลอด 24 ชั่วโมง</span>
+              <span><a href="tel:1323" style="color:inherit; text-decoration:underline;">1323</a> — โทรฟรีตลอด 24 ชั่วโมง</span>
             </div>
           </div>
           <div class="contact-card">
             <span class="contact-card-icon">☎️</span>
             <div class="contact-card-text">
               <strong>กรมสุขภาพจิต</strong>
-              <span>1667 — ให้บริการทุกวัน ไม่มีวันหยุด</span>
+              <span><a href="tel:1667" style="color:inherit; text-decoration:underline;">1667</a> — ให้บริการทุกวัน ไม่มีวันหยุด</span>
             </div>
           </div>
           <div class="contact-card">
@@ -976,7 +994,7 @@
     </div>
     <div class="footer-hotline">
       <strong>🆘 สายด่วนสุขภาพจิต (โทรฟรี 24 ชม.)</strong>
-      <span>1323 &nbsp;|&nbsp; 1667</span>
+      <span><a href="tel:1323" style="color:var(--mint); text-decoration:none; font-weight:700;">1323</a> &nbsp;|&nbsp; <a href="tel:1667" style="color:var(--mint); text-decoration:none; font-weight:700;">1667</a></span>
     </div>
   </div>
   <div class="footer-copy">© 2568 Anxiety in Teens — จัดทำโดยนักเรียนชั้น ม.5/1 เพื่อสร้างพื้นที่ความปลอดภัยทางจิตใจ</div>
@@ -1255,7 +1273,9 @@ function initQ8() {
     showPage('home');
     showToast(`ยินดีต้อนรับ ${name} 🌿`);
   }
-
+  function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('active');
+}
   function showPage(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + page).classList.add('active');

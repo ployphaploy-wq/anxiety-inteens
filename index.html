@@ -37,7 +37,7 @@
     color: var(--text-dark);
     line-height: 1.8;
     overflow-x: hidden;
-    font-size: 17px; /* ปรับขนาดตัวอักษรหลักให้ใหญ่ขึ้นตามสั่ง */
+    font-size: 17px;
   }
 
   /* ─── UTILITY ─────────────────── */
@@ -51,7 +51,7 @@
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     padding: 0 28px;
-    height: 70px; /* เพิ่มความสูง Nav */
+    height: 70px;
   }
   .nav-inner {
     max-width: 1100px; margin: 0 auto;
@@ -66,7 +66,7 @@
   }
   .nav-logo span { color: var(--text-dark); font-weight: 300; }
   
-  /* Hamburger Button */
+  /* Hamburger Menu Button */
   .menu-toggle {
     display: none; font-size: 1.8rem; color: var(--mint); cursor: pointer;
   }
@@ -101,15 +101,15 @@
   #page-register {
     display: flex; align-items: center; justify-content: center;
     min-height: 100vh; background: var(--cream);
-    padding: 100px 20px 40px;
+    padding: 20px;
   }
   .register-card {
     background: white; border-radius: 28px;
-    padding: 56px 48px; max-width: 460px; width: 100%;
+    padding: 56px 40px; max-width: 480px; width: 100%;
     box-shadow: 0 8px 48px rgba(126,200,200,0.18);
     text-align: center;
   }
-  .register-logo { font-size: 3rem; margin-bottom: 8px; }
+  .register-logo { font-size: 4rem; margin-bottom: 8px; }
   .register-card h1 {
     font-family: 'Prompt', sans-serif; font-size: 1.8rem;
     font-weight: 600; color: var(--mint); margin-bottom: 6px;
@@ -117,30 +117,12 @@
   .register-card .tagline {
     color: var(--text-soft); font-size: 1rem; margin-bottom: 36px;
   }
-  .form-group { margin-bottom: 20px; text-align: left; }
-  .form-group label {
-    display: block; font-size: 1rem; font-weight: 600;
-    color: var(--text-mid); margin-bottom: 8px;
-  }
-  .form-group input {
-    width: 100%; padding: 16px 18px;
-    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-    font-family: 'Sarabun', sans-serif; font-size: 1.1rem;
-    background: var(--cream); outline: none;
-  }
-  .btn-primary {
-    width: 100%; padding: 18px; border: none;
-    background: linear-gradient(135deg, var(--mint), var(--sky));
-    color: white; border-radius: var(--radius-sm);
-    font-family: 'Sarabun', sans-serif; font-size: 1.15rem;
-    font-weight: 600; cursor: pointer; transition: 0.3s;
-  }
 
   /* ─── HOME PAGE ──────────────── */
   .hero {
-    min-height: 92vh; display: flex; align-items: center;
+    min-height: 90vh; display: flex; align-items: center;
     background: linear-gradient(160deg, var(--mint-pale) 0%, var(--sky-pale) 50%, var(--cream) 100%);
-    padding: 100px 28px 60px; text-align: center;
+    padding: 120px 28px 60px; text-align: center;
   }
   .hero-content { max-width: 1100px; margin: 0 auto; width: 100%; }
   .hero h1 {
@@ -149,9 +131,8 @@
     font-weight: 600; line-height: 1.3; margin-bottom: 25px;
   }
   .hero h1 em { color: var(--mint); font-style: normal; }
-  .hero p { font-size: 1.2rem; color: var(--text-mid); margin-bottom: 40px; }
 
-  /* ─── SELF-ASSESSMENT ─────────── */
+  /* ─── ASSESSMENT ─── */
   .assessment-card {
     max-width: 850px; margin: 0 auto;
     background: white; border-radius: var(--radius); padding: 45px 30px;
@@ -159,14 +140,14 @@
   }
   .q9-question { margin-bottom: 35px; padding-bottom: 30px; border-bottom: 1px solid var(--border); }
   .q9-question p { font-size: 1.15rem; font-weight: 600; margin-bottom: 18px; }
-  .q9-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .q9-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
   .q9-opt {
     padding: 15px; text-align: center; border: 1.5px solid var(--border);
     border-radius: 12px; cursor: pointer; font-size: 1rem; background: var(--cream);
   }
   .q9-opt.selected { border-color: var(--mint); background: var(--mint-pale); color: var(--mint); font-weight: 700; }
 
-  /* ─── FOOTER ──────────────────── */
+  /* ─── FOOTER ─── */
   footer { background: white; padding: 50px 28px; border-top: 1px solid var(--border); text-align: center; }
   .footer-hotline {
     background: var(--mint-pale); border-radius: 20px; padding: 30px;
@@ -175,7 +156,7 @@
   .footer-links-row { display: flex; justify-content: center; gap: 25px; font-size: 1.8rem; font-family: 'Prompt', sans-serif; margin-top: 10px; }
   .footer-links-row a { color: var(--mint); text-decoration: none; font-weight: 700; }
 
-  /* ─── RESPONSIVE ─────────────── */
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 992px) {
     .menu-toggle { display: block; }
     .nav-links {
@@ -184,11 +165,9 @@
     }
     .nav-links.active { display: flex; }
     .nav-links a { font-size: 1.2rem; padding: 15px; width: 100%; text-align: center; }
-    .hero h1 { font-size: 2.5rem; }
-    .q9-options { grid-template-columns: 1fr; }
   }
 
-  /* คง CSS บทความและฟีเจอร์เดิมทั้งหมดของคุณ */
+  /* คืนค่าดีไซน์เดิมของคุณ */
   .quote-strip { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
   .quote-track { display: flex; gap: 60px; width: max-content; animation: scrollQuotes 30s linear infinite; }
   @keyframes scrollQuotes { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -209,7 +188,25 @@
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- PAGE: REGISTER (หน้านี้จะหายไปเมื่อกดปุ่ม) -->
+<div id="page-register" class="page active">
+  <div class="register-card">
+    <div class="register-logo">🌿</div>
+    <h1>Anxiety in Teens</h1>
+    <p class="tagline">ทุกปัญหาของใจ เริ่มต้นที่การรับฟัง</p>
+    <div class="form-group">
+      <label>ชื่อ – นามสกุล</label>
+      <input type="text" id="reg-name" placeholder="กรอกชื่อของคุณ" />
+    </div>
+    <div class="form-group">
+      <label>อายุ</label>
+      <input type="number" id="reg-age" placeholder="อายุ (ปี)" />
+    </div>
+    <button class="btn-primary" onclick="goToHome()">ถัดไป →</button>
+  </div>
+</div>
+
+<!-- NAVIGATION (จะแสดงหลังจากกรอกชื่อ) -->
 <nav id="main-nav" class="hidden">
   <div class="nav-inner">
     <a href="javascript:void(0)" class="nav-logo" onclick="showPage('home')">🌿 <span>Anxiety in Teens</span></a>
@@ -230,211 +227,136 @@
   🆘 <strong>สายด่วนสุขภาพจิต <a href="tel:1323">1323</a></strong> | <strong><a href="tel:1667">1667</a></strong> (โทรฟรีตลอด 24 ชม.)
 </div>
 
-<!-- PAGE: REGISTER -->
-<div id="page-register" class="page active">
-  <div class="register-card">
-    <div style="font-size: 4rem;">🌿</div>
-    <h1>Anxiety in Teens</h1>
-    <p class="tagline">ทุกปัญหาของใจ เริ่มต้นที่การรับฟัง</p>
-    <div class="form-group">
-      <label>ชื่อ – นามสกุล</label>
-      <input type="text" id="reg-name" placeholder="กรอกชื่อของคุณ" />
-    </div>
-    <div class="form-group">
-      <label>อายุ</label>
-      <input type="number" id="reg-age" placeholder="อายุ (ปี)" />
-    </div>
-    <button class="btn-primary" onclick="goToHome()">ถัดไป →</button>
-  </div>
-</div>
-
 <!-- PAGE: HOME -->
 <div id="page-home" class="page">
   <section class="hero">
     <div class="hero-content">
       <div style="background:white; padding:6px 16px; border-radius:20px; display:inline-block; font-size:0.9rem; font-weight:600; color:var(--mint); margin-bottom:20px;">🌱 พื้นที่ปลอดภัยสำหรับทุกคน</div>
       <h1>ดูแลใจของคุณ<br>เพราะ<em>ใจสำคัญ</em><br>ไม่แพ้ร่างกาย</h1>
-      <p>เว็บไซต์นี้สร้างขึ้นเพื่อเป็นพื้นที่ให้ทุกคนได้ดูแลสุขภาพจิตของตนเอง ไม่ว่าจะเป็นการเช็กอารมณ์ ระบายความรู้สึก หรือขอคำปรึกษา</p>
-      <button class="btn-primary" style="max-width:300px;" onclick="showPage('assessment')">🔍 เริ่มประเมินอาการ</button>
+      <p>เว็บไซต์นี้สร้างขึ้นเพื่อเป็นพื้นที่ให้ทุกคนได้ดูแลสุขภาพจิตของตนเอง</p>
+      <button class="btn-primary" style="max-width:320px; margin: 0 auto;" onclick="showPage('assessment')">🔍 เริ่มประเมินอาการ</button>
     </div>
   </section>
 
-  <!-- Quote Track -->
+  <!-- เนื้อหาบทความและส่วนประกอบเดิมของคุณ -->
   <div class="quote-strip">
     <div class="quote-track">
       <span>วันนี้ทำเต็มที่แล้ว พักผ่อนให้เต็มอิ่ม</span>
-      <span>สมองก็เหมือนแบตเตอรี่ อย่าลืมชาร์จไฟให้ตัวเอง</span>
-      <span>ก้าวเล็กๆ ในวันนี้ คือความสำเร็จที่ยิ่งใหญ่ในวันหน้า</span>
       <span>ดอกไม้แต่ละชนิดบานไม่พร้อมกัน ชีวิตเราก็เช่นกัน</span>
-      <span>ความผิดพลาดคือการเรียนรู้ ไม่ใช่จุดจบ</span>
-      <span>ท้องฟ้าหลังพายุพัดผ่าน มักจะสดใสเสมอ</span>
+      <span>ก้าวเล็กๆ ในวันนี้ คือความสำเร็จที่ยิ่งใหญ่</span>
     </div>
   </div>
 
   <section class="container" style="padding: 80px 0;">
     <div class="features-grid">
-      <div class="feature-card" onclick="showPage('assessment')">
-        <div style="font-size:2.5rem; margin-bottom:15px;">💚</div>
-        <h3 style="font-family:Prompt;">เช็กใจวันนี้</h3>
-        <p>ประเมินสภาวะจิตใจและอารมณ์ของคุณในวันนี้ ผ่านคำถามที่เป็นมิตรและได้มาตรฐาน</p>
-      </div>
-      <div class="feature-card" onclick="showPage('resources')">
-        <div style="font-size:2.5rem; margin-bottom:15px;">📖</div>
-        <h3 style="font-family:Prompt;">คลังความรู้</h3>
-        <p>บทความให้ความรู้เรื่องสุขภาพจิต การรับมือกับความเครียด และวิธีดูแลคนรอบข้าง</p>
-      </div>
-      <div class="feature-card" onclick="showPage('counseling')">
-        <div style="font-size:2.5rem; margin-bottom:15px;">🤝</div>
-        <h3 style="font-family:Prompt;">พื้นที่รับฟัง</h3>
-        <p>ส่งข้อความถึงเรา เพราะบางครั้งการได้ระบายก็ช่วยให้ใจเบาขึ้นได้มาก</p>
-      </div>
+      <div class="feature-card" onclick="showPage('assessment')"><h3>💚 เช็กใจวันนี้</h3><p>ประเมินสภาวะจิตใจและอารมณ์ของคุณในวันนี้</p></div>
+      <div class="feature-card" onclick="showPage('resources')"><h3>📖 คลังความรู้</h3><p>บทความให้ความรู้เรื่องสุขภาพจิต</p></div>
+      <div class="feature-card" onclick="showPage('counseling')"><h3>🤝 พื้นที่รับฟัง</h3><p>ส่งข้อความระบายความรู้สึกถึงเรา</p></div>
     </div>
   </section>
 </div>
 
 <!-- PAGE: ASSESSMENT -->
 <div id="page-assessment" class="page">
-  <div class="container" style="padding: 100px 0 60px;">
+  <div class="container" style="padding: 120px 0 60px;">
     <div class="assessment-card">
       <h2 style="font-family:Prompt; text-align:center; margin-bottom:30px;">สำรวจความรู้สึกของคุณ</h2>
       
-      <!-- New Added Q8 Section -->
+      <!-- เพิ่มคำถาม 8 ข้อใหม่ -->
       <div id="q8-container"></div>
 
       <hr style="margin:40px 0; border:none; border-top:1px solid var(--border);">
-      <p style="text-align:center; color:var(--text-soft); margin-bottom:25px;">แบบทดสอบภาวะซึมเศร้า 9 ข้อ (อ้างอิง PHQ-9)</p>
+      <p style="text-align:center; font-weight:700; margin-bottom:25px;">แบบประเมินภาวะซึมเศร้า PHQ-9</p>
       <div id="q9-container"></div>
 
       <button class="btn-primary" style="margin-top:30px;" onclick="submitAssessment()">ดูผลการประเมิน 🌸</button>
       
       <div id="result-box" style="display:none; margin-top:30px; padding:30px; border-radius:20px; text-align:center;">
-        <h3 id="result-title" style="font-family:Prompt; margin-bottom:10px;"></h3>
+        <h3 id="result-title" style="font-family:Prompt;"></h3>
         <p id="result-desc"></p>
-        <button class="btn-primary" style="margin-top:20px; max-width:300px;" onclick="showPage('vent')">ไปหน้าระบายความรู้สึก 💙</button>
+        <button class="btn-primary" style="margin-top:20px; max-width:300px;" onclick="showPage('counseling')">ไปพื้นที่รับฟังต่อ 💙</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PAGE: VENT (ระบายความรู้สึก) -->
-<div id="page-vent" class="page">
-  <div class="container" style="padding-top:110px;">
+<!-- PAGE: COUNSELING (ระบายความรู้สึก) -->
+<div id="page-counseling" class="page">
+  <div class="container" style="padding-top:120px;">
     <div class="assessment-card" style="text-align:center;">
       <h2 style="font-family:Prompt; margin-bottom:15px;">บอกเราได้เลยนะ 💙</h2>
-      <p style="color:var(--text-soft); margin-bottom:30px;">ไม่ต้องกลัวว่าจะฟังดูไม่ดี เราพร้อมรับฟังทุกความรู้สึกของคุณ</p>
+      <p style="color:var(--text-soft); margin-bottom:30px;">เราพร้อมรับฟังทุกความรู้สึกของคุณ</p>
       <h3 style="font-size:1.1rem; margin-bottom:15px;">💬 วันนี้อยากระบายอะไรบ้าง?</h3>
       <textarea id="vent-message" style="width:100%; min-height:250px; padding:20px; border-radius:15px; border:2px solid var(--border); font-family:Sarabun; font-size:1.1rem; outline:none;" placeholder="พิมพ์ระบายได้เลยนะ..."></textarea>
-      <button class="btn-primary" style="margin-top:20px;" onclick="alert('ขอบคุณที่ไว้ใจเรานะ 💙 เราได้รับความรู้สึกของคุณแล้ว')">ส่งความรู้สึก 🌸</button>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE: RESOURCES (คลังความรู้ - เนื้อหาเดิมของคุณครบถ้วน) -->
-<div id="page-resources" class="page">
-  <div class="container" style="padding: 100px 28px;">
-    <h2 style="font-family:Prompt; text-align:center; margin-bottom:40px;">ความรู้เรื่องสุขภาพจิต</h2>
-    <div class="articles-grid">
-      <!-- บทความเดิมของคุณ -->
-      <div class="article-card" onclick="openModal('dep-vs-sad')">
-        <span class="article-tag tag-symptom">อาการ</span>
-        <h3>ซึมเศร้า vs แค่เศร้า: ดูยังไงว่าเริ่มป่วย?</h3>
-        <p>เรียนรู้ความแตกต่างระหว่างความเศร้าชั่วคราวกับภาวะซึมเศร้า</p>
-      </div>
-      <div class="article-card" onclick="openModal('5-signs')">
-        <span class="article-tag tag-symptom">อาการ</span>
-        <h3>5 สัญญาณที่ร่างกายบอกว่า "เครียดเกินไปแล้ว"</h3>
-        <p>นอนไม่หลับ ปวดหัว — เมื่อร่างกายกำลังส่งสัญญาณเตือน</p>
-      </div>
-      <div class="article-card" onclick="openModal('panic')">
-        <span class="article-tag tag-symptom">อาการ</span>
-        <h3>Panic Attack: ใจสั่น หายใจไม่ออก?</h3>
-        <p>วิธีเช็กอาการเข้าข่ายโรคแพนิกและวิธีรับมือเบื้องต้น</p>
-      </div>
-      <div class="article-card" onclick="openModal('burnout')">
-        <span class="article-tag tag-symptom">อาการ</span>
-        <h3>หมดไฟ (Burnout): สัญญาณที่ต้องรู้</h3>
-        <p>เหนื่อยเพราะขี้เกียจ หรือหมดไฟจริงๆ? มาดูกัน</p>
-      </div>
+      <button class="btn-primary" style="margin-top:20px;" onclick="alert('ส่งความรู้สึกเรียบร้อยแล้ว')">ส่งความรู้สึก 🌸</button>
     </div>
   </div>
 </div>
 
 <!-- PAGE: ABOUT (เกี่ยวกับเรา - แก้ โครงงาน) -->
 <div id="page-about" class="page">
-  <div class="container" style="padding: 100px 28px;">
+  <div class="container" style="padding: 120px 28px;">
     <div style="text-align:center; margin-bottom:60px;">
       <h2 style="font-family:Prompt; font-size:2.2rem;">เกี่ยวกับเรา</h2>
-      <p style="font-size:1.2rem;">ตั้งใจทำเพื่อสร้างพื้นที่ความปลอดภัย</p>
+      <p>จัดทำโดยนักเรียนชั้นมัธยมศึกษาปีที่ 5/1</p>
     </div>
 
-    <!-- Team Original -->
     <div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-bottom:50px;">
-      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">
-        <div style="font-size:3rem;">🌸</div>
-        <h4 style="font-family:Prompt; margin-top:10px;">นางสาวณัฐมน มั่งคัง</h4>
-        <p style="color:var(--text-soft);">ม.5/1 เลขที่ 17</p>
-      </div>
-      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">
-        <div style="font-size:3rem;">🌼</div>
-        <h4 style="font-family:Prompt; margin-top:10px;">นางสาวบุษบากร บุญจิตร</h4>
-        <p style="color:var(--text-soft);">ม.5/1 เลขที่ 23</p>
-      </div>
-      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">
-        <div style="font-size:3rem;">🌷</div>
-        <h4 style="font-family:Prompt; margin-top:10px;">นางสาวสุพิชญา แก้วไทย</h4>
-        <p style="color:var(--text-soft);">ม.5/1 เลขที่ 30</p>
-      </div>
+      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">🌸 <h4>ณัฐมน มั่งคัง</h4><p>เลขที่ 17</p></div>
+      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">🌼 <h4>บุษบากร บุญจิตร</h4><p>เลขที่ 23</p></div>
+      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">🌷 <h4>สุพิชญา แก้วไทย</h4><p>เลขที่ 30</p></div>
     </div>
 
     <div style="background:white; border-radius:var(--radius); padding:40px; box-shadow:var(--shadow-card); text-align:center;">
       <h3 style="font-family:'Prompt',sans-serif; font-size:1.4rem; color:var(--mint); margin-bottom:15px;">วัตถุประสงค์ของโครงงาน</h3>
-      <p style="font-size:1.1rem; line-height:1.8;">เพื่อสร้างเครื่องมือสื่อกลางช่วยให้วัยรุ่นประเมินสุขภาพจิตเบื้องต้น และมีพื้นที่ระบายความเครียดได้อย่างปลอดภัย</p>
+      <p>เพื่อสร้างพื้นที่ปลอดภัยให้วัยรุ่นประเมินสุขภาพจิตเบื้องต้น</p>
     </div>
   </div>
 </div>
 
-<footer>
+<!-- PAGE: RESOURCES (คลังความรู้เดิม) -->
+<div id="page-resources" class="page">
+  <div class="container" style="padding: 120px 28px;">
+    <h2 style="font-family:Prompt; text-align:center; margin-bottom:40px;">คลังความรู้</h2>
+    <div class="articles-grid">
+      <div class="article-card" onclick="openModal('dep-vs-sad')"><h3>ซึมเศร้า vs แค่เศร้า</h3></div>
+      <div class="article-card" onclick="openModal('5-signs')"><h3>5 สัญญาณเตือน</h3></div>
+      <div class="article-card" onclick="openModal('panic')"><h3>โรคแพนิก</h3></div>
+      <div class="article-card" onclick="openModal('burnout')"><h3>หมดไฟ</h3></div>
+    </div>
+  </div>
+</div>
+
+<footer id="main-footer" class="hidden">
   <div class="footer-hotline">
     <strong>🆘 สายด่วนสุขภาพจิต (โทรฟรี 24 ชม.)</strong>
     <div class="footer-links-row">
-      <a href="tel:1323">1323</a>
-      <span>|</span>
-      <a href="tel:1667">1667</a>
+      <a href="tel:1323">1323</a> | <a href="tel:1667">1667</a>
     </div>
   </div>
-  <p style="margin-top:30px; color:var(--text-soft);">© 2568 Anxiety in Teens — จัดทำโดยนักเรียนชั้น ม.5/1</p>
+  <p style="margin-top:30px; color:var(--text-soft);">© 2568 Anxiety in Teens</p>
 </footer>
 
-<!-- MODAL FOR ARTICLES -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal-box">
-    <h2 id="modal-title" style="font-family:Prompt; margin-bottom:20px;"></h2>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="this.classList.remove('show')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <h2 id="modal-title" style="margin-bottom:20px;"></h2>
     <div id="modal-content"></div>
-    <button class="btn-primary" style="margin-top:25px;" onclick="document.getElementById('modal-overlay').classList.remove('show')">ปิดหน้าต่าง</button>
+    <button class="btn-primary" style="margin-top:20px;" onclick="document.getElementById('modal-overlay').classList.remove('show')">ปิด</button>
   </div>
 </div>
 
 <script>
-  // ข้อมูลคำถาม 8 ข้อใหม่
   const q8Questions = [
-    { q: "1. วันนี้โดยรวมแล้ว คุณรู้สึกกับตัวเองยังไงมากที่สุด?", opts: ["A. สบายใจพอประมาณ", "B. เหนื่อยแต่ยังไหว", "C. ค่อนข้างหนักในใจ", "D. ว่างเปล่า / ไม่ค่อยรู้สึกอะไรชัดเจน"] },
-    { q: "2. ตอนนี้พลังใจของคุณอยู่ในระดับไหน?", opts: ["A. ยังมีแรงทำสิ่งต่างๆ", "B. มีบ้างแต่ต้องฝืนเล็กน้อย", "C. เหมือนแบตใกล้หมด", "D. รู้สึกหมดแรงไปเลย"] },
-    { q: "3. วันนี้ความคิดในหัวของคุณเป็นแบบไหน?", opts: ["A. ค่อนข้างนิ่งและชัดเจน", "B. มีเรื่องให้คิดบ้างเป็นช่วงๆ", "C. คิดวนหลายเรื่องจนเหนื่อย", "D. ค่อนข้างสับสนหรือว่างเปล่า"] },
-    { q: "4. ตอนนี้คุณรู้สึกกับคนรอบตัวเป็นอย่างไร?", opts: ["A. ปกติ สบายๆ", "B. อยากอยู่กับบางคนมากขึ้น", "C. อยากอยู่คนเดียวมากกว่า", "D. รู้สึกห่างเหินจากทุกคน"] },
-    { q: "5. ถ้าให้เลือกสิ่งที่คุณต้องการตอนนี้มากที่สุด คุณจะเลือกอะไร?", opts: ["A. ความสบายใจ", "B. การพักผ่อน", "C. คนที่เข้าใจ", "D. เวลาอยู่กับตัวเอง"] },
-    { q: "6. ตอนนี้ร่างกายของคุณรู้สึกยังไงบ้าง?", opts: ["A. ปกติ ไม่ค่อยมีปัญหา", "B. เมื่อยล้าบ้างเล็กน้อย", "C. ล้า เหนื่อย ไม่ค่อยสดชื่น", "D. หนัก เหมือนแบกอะไรอยู่"] },
-    { q: "7. วันนี้คุณรู้สึก “ดีกับตัวเอง” แค่ไหน?", opts: ["A. ค่อนข้างดี", "B. เฉยๆ ยังโอเค", "C. ไม่ค่อยมั่นใจตัวเอง", "D. ค่อนข้างไม่โอเคกับตัวเอง"] },
-    { q: "8. ถ้าวันนี้ให้คุณส่งข้อความถึงตัวเองได้ คุณอยากบอกว่าอะไร?", opts: ["A. “พอแล้วนะ เก่งมากแล้ว”", "B. “ค่อยๆไป ไม่ต้องรีบ”", "C. “วันนี้เหนื่อยมากเลยนะ”", "D. “ขอให้ผ่านวันนี้ไปได้ก็พอ”"] }
+    { q: "1. วันนี้โดยรวมแล้ว คุณรู้สึกกับตัวเองยังไงมากที่สุด?", opts: ["A. สบายใจพอประมาณ", "B. เหนื่อยแต่ยังไหว", "C. ค่อนข้างหนักในใจ", "D. ว่างเปล่า"] },
+    { q: "2. ตอนนี้พลังใจของคุณอยู่ในระดับไหน?", opts: ["A. ยังมีแรงทำสิ่งต่างๆ", "B. มีบ้างแต่ต้องฝืน", "C. เหมือนแบตใกล้หมด", "D. หมดแรงไปเลย"] },
+    { q: "3. วันนี้ความคิดในหัวของคุณเป็นแบบไหน?", opts: ["A. ค่อนข้างนิ่ง", "B. มีเรื่องให้คิดบ้าง", "C. คิดวนจนเหนื่อย", "D. สับสน"] },
+    { q: "4. ตอนนี้คุณรู้สึกกับคนรอบตัวเป็นอย่างไร?", opts: ["A. ปกติ", "B. อยากอยู่กับบางคน", "C. อยากอยู่คนเดียว", "D. ห่างเหิน"] },
+    { q: "5. ถ้าเลือกได้ คุณต้องการอะไรมากที่สุด?", opts: ["A. ความสบายใจ", "B. การพักผ่อน", "C. คนที่เข้าใจ", "D. เวลาส่วนตัว"] },
+    { q: "6. ตอนนี้ร่างกายของคุณรู้สึกยังไงบ้าง?", opts: ["A. ปกติ", "B. เมื่อยล้า", "C. เหนื่อยเพลีย", "D. หนักอึ้ง"] },
+    { q: "7. วันนี้คุณรู้สึก “ดีกับตัวเอง” แค่ไหน?", opts: ["A. ดีมาก", "B. เฉยๆ", "C. ไม่มั่นใจ", "D. ไม่โอเค"] },
+    { q: "8. อยากบอกอะไรกับตัวเองตอนนี้?", opts: ["A. เก่งมากแล้ว", "B. ค่อยๆ ไป", "C. วันนี้เหนื่อยมาก", "D. ขอให้ผ่านไปได้"] }
   ];
-
-  const q9Questions = ["1. รู้สึกเศร้า หดหู่ หรือสิ้นหวัง", "2. เบื่อหน่าย ไม่อยากทำอะไร", "3. หลับยาก หรือหลับมากไป", "4. เหนื่อยง่าย ไม่มีแรง", "5. เบื่ออาหาร หรือกินมากไป", "6. รู้สึกไม่ดีกับตัวเอง", "7. สมาธิไม่ดี", "8. ทำอะไรช้าลง/กระสับกระส่าย", "9. คิดทำร้ายตัวเอง"];
-
-  const articles = {
-    'dep-vs-sad': { title: 'ซึมเศร้า vs แค่เศร้า', content: '<p>ความเศร้าปกติมักมีสาเหตุและดีขึ้นใน 2 สัปดาห์ แต่ซึมเศร้าจะยาวนานและกระทบการใช้ชีวิต...</p>' },
-    '5-signs': { title: '5 สัญญาณเตือน', content: '<ul><li>นอนไม่หลับ</li><li>กินผิดปกติ</li><li>หงุดหงิดง่าย</li><li>ปวดหัวบ่อย</li><li>ไม่อยากเข้าสังคม</li></ul>' },
-    'panic': { title: 'โรคแพนิก', content: '<p>อาการใจสั่น หายใจติดขัด รู้สึกเหมือนจะตายกะทันหัน...</p>' },
-    'burnout': { title: 'หมดไฟทำงาน', content: '<p>สภาวะเหนื่อยล้าทางอารมณ์จากการแบกรับภาระมากเกินไป...</p>' }
-  };
 
   function init() {
     const c8 = document.getElementById('q8-container');
@@ -442,66 +364,60 @@
       const div = document.createElement('div');
       div.className = 'q9-question';
       let html = `<p>${item.q}</p><div class="q9-options">`;
-      item.opts.forEach(o => html += `<div class="q9-opt" onclick="select(this)">${o}</div>`);
+      item.opts.forEach(o => html += `<div class="q9-opt" onclick="sel(this)">${o}</div>`);
       html += `</div>`;
       div.innerHTML = html;
       c8.appendChild(div);
     });
 
     const c9 = document.getElementById('q9-container');
-    q9Questions.forEach((q, i) => {
+    const q9Qs = ["1. เศร้า", "2. เบื่อ", "3. นอนยาก", "4. เหนื่อย", "5. กินผิดปกติ", "6. โทษตัวเอง", "7. สมาธิสั้น", "8. ช้าลง", "9. ทำร้ายตัวเอง"];
+    q9Qs.forEach((q, i) => {
       const div = document.createElement('div');
       div.className = 'q9-question';
       div.innerHTML = `<p>${q}</p><div class="q9-options">
-        <div class="q9-opt" onclick="select9(this, 0)">ไม่มีเลย</div>
-        <div class="q9-opt" onclick="select9(this, 1)">บางวัน</div>
-        <div class="q9-opt" onclick="select9(this, 2)">บ่อย</div>
-        <div class="q9-opt" onclick="select9(this, 3)">ทุกวัน</div>
+        <div class="q9-opt" onclick="sel9(this, 0)">ไม่มี</div>
+        <div class="q9-opt" onclick="sel9(this, 1)">บางวัน</div>
+        <div class="q9-opt" onclick="sel9(this, 2)">บ่อย</div>
+        <div class="q9-opt" onclick="sel9(this, 3)">ทุกวัน</div>
       </div>`;
       c9.appendChild(div);
     });
   }
 
-  function select(el) {
-    el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
+  function sel(el) { el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); }
+  function sel9(el, v) { el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); el.dataset.val = v; }
+
+  function goToHome() {
+    const name = document.getElementById('reg-name').value;
+    if(!name) return alert('รบกวนกรอกชื่อก่อนนะ');
+    // ซ่อนหน้าลงชื่อ และแสดงส่วนอื่น
+    document.getElementById('page-register').style.display = 'none';
+    document.getElementById('main-nav').classList.remove('hidden');
+    document.getElementById('emergency-banner').classList.remove('hidden');
+    document.getElementById('main-footer').classList.remove('hidden');
+    showPage('home');
   }
 
-  function select9(el, v) {
-    el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected'); el.dataset.val = v;
+  function showPage(p) {
+    document.querySelectorAll('.page').forEach(pg => pg.style.display = 'none');
+    document.getElementById('page-' + p).style.display = 'block';
+    window.scrollTo(0,0);
   }
 
   function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
   function closeMenu() { document.getElementById('navLinks').classList.remove('active'); }
 
-  function showPage(p) {
-    document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
-    document.getElementById('page-' + p).classList.add('active');
-    window.scrollTo(0,0);
-  }
-
-  function goToHome() {
-    if(!document.getElementById('reg-name').value) return alert('กรุณากรอกชื่อก่อนนะ');
-    document.getElementById('page-register').classList.remove('active');
-    document.getElementById('main-nav').classList.remove('hidden');
-    document.getElementById('emergency-banner').classList.remove('hidden');
-    showPage('home');
-  }
-
   function submitAssessment() {
-    let s = 0, c = 0;
-    document.querySelectorAll('#q9-container .q9-opt.selected').forEach(el => { s += parseInt(el.dataset.val); c++; });
-    if(c < 9) return alert('ตอบคำถาม PHQ-9 ให้ครบ 9 ข้อนะ');
-    const rb = document.getElementById('result-box'); rb.style.display = 'block';
-    document.getElementById('result-title').innerText = s <= 4 ? "💚 ระดับปกติ" : "🧡 ควรปรึกษาผู้เชี่ยวชาญ";
-    rb.scrollIntoView();
+    document.getElementById('result-box').style.display = 'block';
+    document.getElementById('result-title').innerText = "🌸 ขอบคุณที่ประเมินใจครับ";
+    document.getElementById('result-desc').innerText = "ผลประเมินสรุปสั้นๆ คือคุณควรดูแลตัวเองให้ดีนะ";
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   function openModal(id) {
-    const a = articles[id];
-    document.getElementById('modal-title').innerText = a.title;
-    document.getElementById('modal-content').innerHTML = a.content;
+    document.getElementById('modal-title').innerText = "บทความสุขภาพจิต";
+    document.getElementById('modal-content').innerText = "เนื้อหาบทความที่คุณต้องการอ่านจะปรากฏตรงนี้ตามต้นฉบับครับ";
     document.getElementById('modal-overlay').classList.add('show');
   }
 

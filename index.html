@@ -7,309 +7,268 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Prompt', sans-serif;
-            background-color: #F8FAFC; /* สีขาวนวลสบายตา */
+            font-family: 'Sarabun', sans-serif;
+            background-color: #FAFAFA; /* พื้นหลังสีขาวนวลแบบ Minimal */
+            letter-spacing: -0.01em;
         }
         .page { display: none; }
         .page.active { display: block; }
+        /* สไตล์ Custom เพิ่มเติมเพื่อความละมุน */
+        .minimal-shadow {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
     </style>
 </head>
-<body class="text-slate-700 min-h-screen pb-24">
+<body class="text-neutral-700 min-h-screen pb-28">
 
     <div id="page-gate" class="page active flex items-center justify-center min-h-screen px-4">
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 max-w-md w-full text-center">
-            <h1 class="text-2xl font-semibold text-sky-600 mb-2">Anxiety in Teens</h1>
-            <p class="text-sm text-slate-400 mb-6">"ทุกปัญหาของใจ เริ่มต้นที่การรับฟัง"</p>
-            <div class="space-y-4 text-left">
+        <div class="bg-white p-10 rounded-2xl minimal-shadow border border-neutral-100 max-w-sm w-full text-center">
+            <h1 class="text-xl font-medium text-neutral-800 mb-1 tracking-tight">Anxiety in Teens</h1>
+            <p class="text-xs text-neutral-400 mb-8">"ทุกปัญหาของใจ เริ่มต้นที่การรับฟัง"</p>
+            
+            <div class="space-y-5 text-left">
                 <div>
-                    <label class="block text-sm font-medium text-slate-500 mb-1">ชื่อ - นามสกุล</label>
-                    <input type="text" id="user-name" placeholder="ยินดีที่ได้รู้จักนะ บอกชื่อคุณหน่อย..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-200 text-sm">
+                    <label class="block text-xs font-medium text-neutral-400 mb-1.5">ชื่อ - นามสกุล</label>
+                    <input type="text" id="user-name" placeholder="ระบุชื่อของคุณ" class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-neutral-400 transition text-sm text-neutral-800 placeholder-neutral-300">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-500 mb-1">อายุ (ปี)</label>
-                    <input type="number" id="user-age" placeholder="ปีนี้อายุเท่าไหร่แล้วเอ่ย?" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-200 text-sm">
+                    <label class="block text-xs font-medium text-neutral-400 mb-1.5">อายุ (ปี)</label>
+                    <input type="number" id="user-age" placeholder="ระบุอายุของคุณ" class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-neutral-400 transition text-sm text-neutral-800 placeholder-neutral-300">
                 </div>
-                <button onclick="goToHome()" class="w-full bg-sky-400 hover:bg-sky-500 text-white font-medium py-2.5 rounded-xl transition duration-200 text-sm mt-2 shadow-md shadow-sky-100 cursor-pointer">ถัดไป</button>
+                <button onclick="goToHome()" class="w-full bg-neutral-900 hover:bg-neutral-800 text-white font-medium py-2.5 rounded-xl transition duration-200 text-sm mt-3 cursor-pointer">
+                    ถัดไป
+                </button>
             </div>
         </div>
     </div>
 
-    <nav id="main-nav" class="hidden bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-2">
-            <span class="font-semibold text-sky-600 cursor-pointer" onclick="switchPage('home')">Anxiety in Teens</span>
-            <div class="flex space-x-1 text-sm">
-                <button onclick="switchPage('home')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50">หน้าแรก</button>
-                <button onclick="switchPage('check')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50">เช็กใจ</button>
-                <button onclick="switchPage('knowledge')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50">คลังความรู้</button>
-                <button onclick="switchPage('about')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50">เกี่ยวกับเรา</button>
+    <nav id="main-nav" class="hidden bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-neutral-100">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="font-medium text-neutral-800 cursor-pointer text-sm" onclick="switchPage('home')">Anxiety in Teens</span>
+            <div class="flex space-x-2 text-xs">
+                <button onclick="switchPage('home')" class="px-3 py-1.5 rounded-lg text-neutral-500 hover:text-neutral-800 transition">หน้าแรก</button>
+                <button onclick="switchPage('check')" class="px-3 py-1.5 rounded-lg text-neutral-500 hover:text-neutral-800 transition">เช็กใจ</button>
+                <button onclick="switchPage('knowledge')" class="px-3 py-1.5 rounded-lg text-neutral-500 hover:text-neutral-800 transition">คลังความรู้</button>
+                <button onclick="switchPage('about')" class="px-3 py-1.5 rounded-lg text-neutral-500 hover:text-neutral-800 transition">เกี่ยวกับเรา</button>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-4 mt-8">
+    <main class="max-w-2xl mx-auto px-6 mt-12">
         
-        <div id="page-home" class="page space-y-8">
-            <div class="text-center py-12 px-6 bg-gradient-to-b from-sky-50 to-transparent rounded-3xl">
-                <span id="welcome-msg" class="text-slate-500 text-sm block mb-2">สวัสดีครับคุณผู้ใช้งาน</span>
-                <h2 class="text-3xl font-bold text-slate-800 leading-snug max-w-lg mx-auto">
+        <div id="page-home" class="page space-y-10">
+            <div class="text-center py-16 px-4 bg-white rounded-2xl border border-neutral-100 minimal-shadow">
+                <span id="welcome-msg" class="text-neutral-400 text-xs block mb-3">สวัสดีคุณผู้ใช้งาน</span>
+                <h2 class="text-2xl font-normal text-neutral-800 leading-relaxed max-w-md mx-auto">
                     การดูแลใจสำคัญไม่แพ้<br><span class="text-sky-500">การดูแลร่างกาย</span>
                 </h2>
-                <p class="text-slate-500 text-sm mt-4 max-w-md mx-auto leading-relaxed">
-                    เว็บไซต์นี้สร้างขึ้นเพื่อเป็นพื้นที่ให้ทุกคนได้ดูแลสุขภาพจิตของตนเอง ไม่ว่าจะเป็นการเช็กอารมณ์ ระบายความรู้สึก หรือศึกษาข้อมูลการดูแลตัวเอง ขอให้ที่นี่เป็นพื้นที่ปลอดภัยของคุณนะ
+                <p class="text-neutral-400 text-xs mt-4 max-w-sm mx-auto leading-relaxed">
+                    พื้นที่ปลอดภัยสำหรับทบทวนอารมณ์ ระบายความรู้สึก และศึกษาแนวทางดูแลจิตใจตนเองอย่างยั่งยืน
                 </p>
-                <button onclick="switchPage('check')" class="mt-6 bg-sky-400 hover:bg-sky-500 text-white font-medium px-6 py-2.5 rounded-full shadow-lg shadow-sky-100 transition cursor-pointer text-sm">
-                    เริ่มประเมินอาการ
+                <button onclick="switchPage('check')" class="mt-8 bg-sky-50 text-sky-600 hover:bg-sky-100 font-medium px-6 py-2.5 rounded-full transition cursor-pointer text-xs">
+                    เริ่มประเมินใจ
                 </button>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 text-center shadow-xs">
-                <span class="text-xs font-semibold tracking-wider text-sky-400 uppercase block mb-2">ข้อความเติมพลังบวกวันนี้</span>
-                <p id="daily-quote" class="text-slate-600 italic font-medium">"วันนี้ทำเต็มที่แล้ว พักผ่อนให้เต็มอิ่ม พรุ่งนี้ค่อยลุยใหม่"</p>
-                <button onclick="changeQuote()" class="mt-3 text-xs text-slate-400 hover:text-sky-400 transition cursor-pointer">🔄 เปลี่ยนคำคม</button>
+            <div class="bg-white p-6 rounded-2xl border border-neutral-100 minimal-shadow text-center">
+                <span class="text-[10px] font-semibold tracking-widest text-neutral-400 uppercase block mb-2">ข้อความสร้างพลังบวก</span>
+                <p id="daily-quote" class="text-neutral-600 font-normal text-sm leading-relaxed">"วันนี้ทำเต็มที่แล้ว พักผ่อนให้เต็มอิ่ม พรุ่งนี้ค่อยลุยใหม่"</p>
+                <button onclick="changeQuote()" class="mt-4 text-[11px] text-neutral-400 hover:text-neutral-600 transition cursor-pointer flex items-center gap-1 mx-auto">
+                    🔄 สลับข้อความ
+                </button>
             </div>
         </div>
 
         <div id="page-check" class="page space-y-6">
-            <div class="bg-white p-6 rounded-2xl border border-slate-100">
-                <h3 class="text-lg font-semibold text-slate-800 mb-2">📊 ส่วนที่ 1: เช็กพลังใจประจำวัน</h3>
-                <p class="text-slate-400 text-xs mb-4">สำรวจและบันทึกอารมณ์ของคุณ ณ ตอนนี้</p>
+            <div class="bg-white p-6 rounded-2xl border border-neutral-100 minimal-shadow">
+                <h3 class="text-sm font-medium text-neutral-800 mb-1">ส่วนที่ 1: บันทึกอารมณ์ประจำวัน</h3>
+                <p class="text-neutral-400 text-[11px] mb-6">สำรวจสภาวะจิตใจของคุณในปัจจุบัน</p>
                 
-                <div class="space-y-4">
+                <div class="space-y-5 text-xs">
                     <div>
-                        <label class="block text-sm text-slate-600 mb-1">วันนี้พลังใจกี่เปอร์เซ็นต์? (<span id="percent-val">50</span>%)</label>
-                        <input type="range" id="power-range" min="0" max="100" value="50" oninput="document.getElementById('percent-val').innerText=this.value" class="w-full accent-sky-400">
+                        <div class="flex justify-between text-neutral-500 mb-1.5">
+                            <label>ระดับพลังใจในวันนี้</label>
+                            <span class="font-medium"><span id="percent-val">50</span>%</span>
+                        </div>
+                        <input type="range" id="power-range" min="0" max="100" value="50" oninput="document.getElementById('percent-val').innerText=this.value" class="w-full accent-neutral-800">
                     </div>
                     <div>
-                        <label class="block text-sm text-slate-600 mb-1">ตอนนี้ความรู้สึกหลักคืออะไร?</label>
-                        <select id="feeling-select" class="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-100">
-                            <option value="study">เครียดเรื่องเรียน / สอบ</option>
-                            <option value="friend">นอยด์เรื่องเพื่อน / รู้สึกโดดเดี่ยว</option>
-                            <option value="burnout">เหนื่อยเพลีย / หมดไฟ / ขี้เกียจ</option>
-                            <option value="happy">แฮปบี้ดี / มีความสุข</option>
+                        <label class="block text-neutral-500 mb-1.5">ความรู้สึกหลักของคุณตอนนี้</label>
+                        <select id="feeling-select" class="w-full px-3 py-2.5 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-neutral-400 transition">
+                            <option value="study">ตึงเครียดหรือกังวลเรื่องการเรียน</option>
+                            <option value="friend">รู้สึกโดดเดี่ยว หรือมีปัญหากับคนรอบข้าง</option>
+                            <option value="burnout">เหนื่อยล้า หมดไฟ สะสม</option>
+                            <option value="happy">มีความสุขดี / ปกติ</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm text-slate-600 mb-1">ก่อนรับคำแนะนำ ระดับความตึงเครียดของคุณ (1-5 ดาว)</label>
-                        <select id="stress-before" class="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-100">
-                            <option value="1">⭐ (เครียดน้อยมาก)</option>
-                            <option value="2">⭐⭐</option>
-                            <option value="3">⭐⭐⭐</option>
-                            <option value="4">⭐⭐⭐⭐</option>
-                            <option value="5">⭐⭐⭐⭐⭐ (เครียดหนักมาก)</option>
+                        <label class="block text-neutral-500 mb-1.5">ประเมินระดับความเครียดก่อนรับคำแนะนำ</label>
+                        <select id="stress-before" class="w-full px-3 py-2.5 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-neutral-400 transition">
+                            <option value="1">ระดับ 1 (น้อยมาก)</option>
+                            <option value="2">ระดับ 2 (น้อย)</option>
+                            <option value="3">ระดับ 3 (ปานกลาง)</option>
+                            <option value="4">ระดับ 4 (มาก)</option>
+                            <option value="5">ระดับ 5 (มากที่สุด)</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl border border-slate-100">
-                <h3 class="text-lg font-semibold text-slate-800 mb-2">📝 ส่วนที่ 2: แบบประเมินแนวโน้มภาวะซึมเศร้า (9Q)</h3>
-                <p class="text-slate-400 text-xs mb-6">ในช่วง 2 สัปดาห์ที่ผ่านมารวมถึงวันนี้ คุณมีอาการเหล่านี้บ่อยแค่ไหน?</p>
+            <div class="bg-white p-6 rounded-2xl border border-neutral-100 minimal-shadow">
+                <h3 class="text-sm font-medium text-neutral-800 mb-1">ส่วนที่ 2: แบบประเมินสภาวะอารมณ์ (อ้างอิงเกณฑ์ 9Q)</h3>
+                <p class="text-neutral-400 text-[11px] mb-6">ในช่วง 2 สัปดาห์ที่ผ่านมารวมถึงวันนี้ คุณมีอาการเหล่านี้บ่อยแค่ไหน?</p>
                 
-                <form id="quiz-form" class="space-y-6 text-sm">
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">1. มีความรู้สึกเศร้า หดหู่ หรือท้อแท้</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q1" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q1" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q1" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q1" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">2. ความสนใจหรือความเพลิดเพลินในการทำกิจกรรมต่างๆ ลดลงอย่างมาก</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q2" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q2" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q2" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q2" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">3. มีปัญหาการนอน (นอนไม่หลับ หรือนอนมากเกินไป)</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q3" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q3" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q3" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q3" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">4. รู้สึกเหนื่อยหน่าย อ่อนเพลีย ไม่มีแรง</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q4" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q4" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q4" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q4" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">5. เบื่ออาหาร หรือกินมากเกินไป</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q5" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q5" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q5" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q5" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">6. รู้สึกตนเองไร้ค่า หรือทำให้ครอบครัวผิดหวัง</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q6" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q6" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q6" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q6" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">7. สมาธิสั้นลงเมื่อทำสิ่งต่างๆ (เช่น อ่านหนังสือ ดูทีวี)</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q7" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q7" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q7" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q7" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block border-b border-slate-50 pb-4">
-                        <p class="font-medium text-slate-700 mb-2">8. พูดหรือทำอะไรช้าลงจนคนอื่นสังเกตเห็น หรือกระสับกระส่ายอยู่ไม่สุข</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q8" value="0" checked class="accent-sky-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q8" value="1" class="accent-sky-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q8" value="2" class="accent-sky-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-slate-50 rounded-lg cursor-pointer"><input type="radio" name="q8" value="3" class="accent-sky-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
-                    <div class="question-block pb-4">
-                        <p class="font-medium text-red-600 mb-2">9. มีความคิดอยากทำร้ายตัวเอง หรือคิดว่าถ้าตายไปคงจะดี</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                            <label class="flex items-center gap-1.5 p-2 bg-red-50 rounded-lg cursor-pointer"><input type="radio" name="q9" value="0" checked class="accent-red-400"> ไม่มีเลย</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-red-50 rounded-lg cursor-pointer"><input type="radio" name="q9" value="1" class="accent-red-400"> เป็นบางวัน</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-red-50 rounded-lg cursor-pointer"><input type="radio" name="q9" value="2" class="accent-red-400"> บ่อยๆ</label>
-                            <label class="flex items-center gap-1.5 p-2 bg-red-50 rounded-lg cursor-pointer"><input type="radio" name="q9" value="3" class="accent-red-400"> เป็นทุกวัน</label>
-                        </div>
-                    </div>
+                <form id="quiz-form" class="space-y-6 text-xs">
+                    <script>
+                        const questions = [
+                            "มีความรู้สึกเศร้า หดหู่ หรือท้อแท้",
+                            "ความสนใจหรือความเพลิดเพลินในการทำกิจกรรมต่างๆ ลดลงอย่างมาก",
+                            "มีปัญหาการนอน (นอนไม่หลับ หรือนอนมากเกินไป)",
+                            "รู้สึกเหนื่อยหน่าย อ่อนเพลีย ไม่มีแรง",
+                            "เบื่ออาหาร หรือรับประทานอาหารมากเกินไป",
+                            "รู้สึกตนเองไร้ค่า หรือทำให้ครอบครัวผิดหวัง",
+                            "สมาธิในการทำสิ่งต่างๆ ลดลง (เช่น การเรียน หรืออ่านหนังสือ)",
+                            "พูดหรือทำสิ่งต่างๆ ช้าลงจนผู้อื่นสังเกตเห็น หรือกระสับกระส่ายอยู่ไม่สุข",
+                            "มีความคิดอยากทำร้ายตัวเอง หรือคิดว่าหากตายไปคงจะดีกว่า"
+                        ];
+                        
+                        questions.forEach((q, index) => {
+                            const isLast = index === 8;
+                            document.write(`
+                                <div class="pb-5 ${isLast ? '' : 'border-b border-neutral-100'}">
+                                    <p class="font-medium ${isLast ? 'text-red-500' : 'text-neutral-700'} mb-2.5">${index + 1}. ${q}</p>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                                        <label class="flex items-center gap-2 p-2 bg-neutral-50/60 rounded-xl cursor-pointer hover:bg-neutral-100/80 transition"><input type="radio" name="q${index+1}" value="0" checked class="accent-neutral-800"> ไม่มีเลย</label>
+                                        <label class="flex items-center gap-2 p-2 bg-neutral-50/60 rounded-xl cursor-pointer hover:bg-neutral-100/80 transition"><input type="radio" name="q${index+1}" value="1" class="accent-neutral-800"> เป็นบางวัน</label>
+                                        <label class="flex items-center gap-2 p-2 bg-neutral-50/60 rounded-xl cursor-pointer hover:bg-neutral-100/80 transition"><input type="radio" name="q${index+1}" value="2" class="accent-neutral-800"> บ่อยครั้ง</label>
+                                        <label class="flex items-center gap-2 p-2 bg-neutral-50/60 rounded-xl cursor-pointer hover:bg-neutral-100/80 transition"><input type="radio" name="q${index+1}" value="3" class="accent-neutral-800"> เป็นทุกวัน</label>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                    </script>
 
-                    <button type="button" onclick="calculateResult()" class="w-full bg-emerald-400 hover:bg-emerald-500 text-white font-medium py-3 rounded-xl transition duration-200 shadow-md shadow-emerald-100 cursor-pointer">ส่งผลการประเมินใจ</button>
+                    <button type="button" onclick="calculateResult()" class="w-full bg-neutral-900 hover:bg-neutral-800 text-white font-medium py-3 rounded-xl transition duration-200 cursor-pointer mt-4">
+                        ส่งผลประเมิน
+                    </button>
                 </form>
             </div>
 
-            <div id="result-box" class="hidden bg-white p-6 rounded-2xl border-2 border-sky-200 transition duration-300">
-                <h4 class="text-lg font-semibold text-slate-800 mb-2">📢 ผลสรุปและแนวทางดูแลใจของคุณ</h4>
-                <div id="result-text" class="text-sm bg-slate-50 p-4 rounded-xl mb-4 leading-relaxed"></div>
+            <div id="result-box" class="hidden bg-white p-6 rounded-2xl border border-neutral-200 minimal-shadow transition">
+                <h4 class="text-sm font-medium text-neutral-800 mb-3">สรุปผลประเมินและแนวทางดูแลใจ</h4>
+                <div id="result-text" class="text-xs bg-neutral-50 p-4 rounded-xl mb-4 leading-relaxed text-neutral-600"></div>
                 
-                <div class="bg-sky-50/50 p-4 rounded-xl mb-4">
-                    <h5 class="text-xs font-semibold tracking-wider text-sky-500 uppercase mb-2">💡 คำแนะนำทางจิตวิทยาตามปัญหาของคุณ</h5>
-                    <div id="psychology-tip" class="text-xs space-y-1.5 text-slate-600"></div>
+                <div class="bg-neutral-50/60 p-4 rounded-xl mb-5">
+                    <h5 class="text-[10px] font-semibold tracking-wider text-neutral-400 uppercase mb-2">คำแนะนำทางจิตวิทยาเบื้องต้น</h5>
+                    <div id="psychology-tip" class="text-xs space-y-2 text-neutral-600 leading-relaxed"></div>
                 </div>
 
-                <div class="border-t border-slate-100 pt-4 mt-4">
-                    <p class="text-sm font-medium text-slate-700 mb-2">💖 หลังรับคำแนะนำตอนนี้ใจฟูขึ้นบ้างไหม?</p>
+                <div class="border-t border-neutral-100 pt-4">
+                    <p class="text-xs font-medium text-neutral-700 mb-3">หลังจากอ่านคำแนะนำข้างต้นแล้ว คุณรู้สึกผ่อนคลายขึ้นหรือไม่?</p>
                     <div class="flex gap-2">
-                        <button onclick="afterAssessment('ดีขึ้น')" class="flex-1 bg-teal-50 text-teal-600 border border-teal-200 text-xs py-2 rounded-lg hover:bg-teal-100 cursor-pointer">ดีขึ้นเยอะเลย</button>
-                        <button onclick="afterAssessment('เท่าเดิม')" class="flex-1 bg-slate-50 text-slate-600 border border-slate-200 text-xs py-2 rounded-lg hover:bg-slate-100 cursor-pointer">รู้สึกเท่าเดิม</button>
-                        <button onclick="afterAssessment('แย่ลง')" class="flex-1 bg-rose-50 text-rose-600 border border-rose-200 text-xs py-2 rounded-lg hover:bg-rose-100 cursor-pointer">รู้สึกแย่ลง</button>
+                        <button onclick="afterAssessment('ดีขึ้น')" class="flex-1 bg-neutral-50 text-neutral-700 border border-neutral-200 text-xs py-2 rounded-xl hover:bg-neutral-100 transition cursor-pointer">ดีขึ้น</button>
+                        <button onclick="afterAssessment('เท่าเดิม')" class="flex-1 bg-neutral-50 text-neutral-500 border border-neutral-200 text-xs py-2 rounded-xl hover:bg-neutral-100 transition cursor-pointer">คงเดิม</button>
+                        <button onclick="afterAssessment('แย่ลง')" class="flex-1 bg-neutral-50 text-neutral-500 border border-neutral-200 text-xs py-2 rounded-xl hover:bg-neutral-100 transition cursor-pointer">กังวลขึ้น</button>
                     </div>
-                    <p id="after-msg" class="text-xs text-sky-600 mt-2 hidden font-medium"></p>
+                    <p id="after-msg" class="text-xs text-neutral-800 mt-3 hidden font-medium bg-neutral-50 p-3 rounded-xl"></p>
                 </div>
             </div>
         </div>
 
-        <div id="page-knowledge" class="page space-y-8">
+        <div id="page-knowledge" class="page space-y-10">
             <div class="text-center">
-                <h3 class="text-xl font-semibold text-slate-800">📖 คลังความรู้เพื่อก้าวผ่านความดิ่ง</h3>
-                <p class="text-slate-400 text-xs mt-1">แบ่งปันข้อมูลและวิธีรับมืออย่างถูกต้องเพื่อหัวใจที่แข็งแรง</p>
+                <h3 class="text-lg font-medium text-neutral-800">คลังข้อมูลสุขภาพจิต</h3>
+                <p class="text-neutral-400 text-xs mt-1">บทความและวิธีรับมืออย่างถูกต้องเพื่อหัวใจที่แข็งแรง</p>
             </div>
 
-            <div>
-                <h4 class="text-sm font-semibold text-sky-500 border-l-4 border-sky-400 pl-2 mb-3">หมวดที่ 1: อาการ (เช็กสัญญาณใจ)</h4>
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold text-neutral-400 tracking-wider uppercase border-b border-neutral-100 pb-1">หมวด: อาการ (เช็กสัญญาณใจ)</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">ซึมเศร้า vs แค่เศร้า</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">ดูยังไงว่าเริ่มป่วย หรือแค่เหนื่อยชั่วคราว? ความเศร้าปกติจะหายไปเมื่อได้ทำสิ่งที่ชอบ แต่ซึมเศร้าจะดิ่งต่อเนื่องเกิน 2 สัปดาห์และหมดความสุขกับทุกสิ่ง</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">ซึมเศร้า กับ แค่เศร้า ต่างกันอย่างไร</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">ความเศร้าปกติมักจางหายไปเมื่อสถานการณ์คลี่คลาย แต่ภาวะซึมเศร้าจะดิ่งต่อเนื่องยาวนานเกิน 2 สัปดาห์ และส่งผลกระทบต่อการใช้ชีวิตประจำวัน</p>
                     </div>
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">5 สัญญาณเตือนร่างกายประท้วง</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">เมื่อสมองเครียดเกินไป ร่างกายจะเริ่มฟ้องผ่านอาการนอนไม่หลับ, พฤติกรรมการกินเปลี่ยนไป (กินจุขึ้นหรือเบื่ออาหาร), และมีอาการปวดหัวตึงๆ โดยไม่ทราบสาเหตุ</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">5 สัญญาณเตือนเมื่อร่างกายตึงเครียด</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">เมื่อสมองอ่อนล้า ร่างกายมักแสดงออกผ่านความผิดปกติ เช่น นอนไม่หลับ พฤติกรรมการกินเปลี่ยนไปอย่างชัดเจน หรือมีอาการปวดศีรษะเรื้อรัง</p>
                     </div>
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">Panic Attack คืออะไร?</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">อาการใจสั่น รัวเหมือนรบ กลัวว่าจะตาย หายใจไม่ออกกะทันหัน ทั้งที่ไม่มีอันตรายจริง เกิดจากระบบประสาทตื่นตัวผิดปกติ รักษาและฝึกหายใจให้ช้าลงได้ครับ</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">ทำความเข้าใจกับ Panic Attack</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">อาการตื่นตระหนกเฉียบพลัน หัวใจเต้นเร็ว หายใจลำบาก เกิดจากระบบประสาทอัตโนมัติทำงานไวเกินปกติ การฝึกควบคุมลมหายใจจะช่วยบรรเทาอาการได้</p>
                     </div>
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">หมดไฟ (Burnout Syndrome)</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">รู้สึกเหนื่อยล้าทางอารมณ์อย่างรุนแรง รู้สึกงานหรือการเรียนกำลังกัดกินพลังชีวิต วิธีแก้คือแบ่งเวลาพักผ่อนและเริ่มสร้างขอบเขตให้ตัวเองใหม่</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">ภาวะหมดไฟ (Burnout Syndrome)</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">ความเหนื่อยล้าทางอารมณ์และจิตใจขั้นรุนแรงจากการเรียนหรือการทำงาน ควรแก้ไขด้วยการจัดสรรเวลาพักผ่อนและขีดเส้นขอบเขตตนเองให้ชัดเจน</p>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-sm font-semibold text-sky-500 border-l-4 border-sky-400 pl-2 mb-3">หมวดที่ 2: การรักษา (หาทางออก)</h4>
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold text-neutral-400 tracking-wider uppercase border-b border-neutral-100 pb-1">หมวด: การรักษา (หาทางออก)</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">จิตแพทย์ vs นักจิตวิทยา</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">ต่างกันอย่างไร? **จิตแพทย์** เป็นหมอที่เน้นตรวจประเมินโรคทางกายและสารเคมีในสมอง สามารถจ่ายยาได้ ส่วน **นักจิตวิทยา** จะเน้นการพูดคุย บำบัดพฤติกรรมและปรับความคิด (CBT)</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">จิตแพทย์ กับ นักจิตวิทยา ต่างกันอย่างไร</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">จิตแพทย์เป็นแพทย์ที่เน้นประเมินโรคและสามารถจ่ายยาเพื่อปรับสารเคมีในสมองได้ ส่วนนักจิตวิทยาจะเน้นการทำจิตบำบัดและปรับพฤติกรรมผ่านการพูดคุย</p>
                     </div>
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">พบหมอครั้งแรกต้องทำอย่างไร</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">ไม่ต้องกลัวเลยครับ! เตรียมแค่บัตรประชาชน เล่าความรู้สึกตามจริง สิ่งที่ทำให้เราทุกข์ใจ หรือถ้าเรียบเรียงไม่ถูก สามารถจดโน้ตใส่โทรศัพท์ไปเปิดให้คุณหมออ่านได้เลย</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">การเตรียมตัวเข้าพบผู้เชี่ยวชาญครั้งแรก</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">ไม่ต้องกังวลใจไปครับ เพียงเตรียมข้อมูลอาการเบื้องต้น หรือสิ่งที่ทำให้ทุกข์ใจ การเรียบเรียงเป็นข้อความสั้นๆ ในโทรศัพท์เพื่อเล่าให้ฟังก็ช่วยได้มาก</p>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-sm font-semibold text-sky-500 border-l-4 border-sky-400 pl-2 mb-3">หมวดที่ 3: การดูแลคนใกล้ชิด (ส่งต่อพลัง)</h4>
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold text-neutral-400 tracking-wider uppercase border-b border-neutral-100 pb-1">หมวด: การดูแลคนใกล้ชิด (ส่งต่อพลัง)</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">Do & Don't คำพูดกับคนซึมเศร้า</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">✅ **ควรพูด:** "เธอไม่ได้อยู่คนเดียวนะ", "เราพร้อมรับฟังเธอเสมอ"<br>❌ **ห้ามพูด:** "เรื่องแค่นี้เอง สู้ๆ สิ", "คิดมากไปเปล่า", "คนอื่นลำบากกว่านี้อีก"</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">Do & Don't สิ่งที่ควรและไม่ควรพูด</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">ควรเน้นประโยคที่แสดงการรับฟัง เช่น "เราอยู่ข้างๆ เธอนะ" และหลีกเลี่ยงคำพูดที่ดูเป็นการตัดสินหรือกดดัน เช่น "แค่นี้เองสู้ๆ สิ" หรือ "คิดมากไปเอง"</p>
                     </div>
-                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-xs">
-                        <h5 class="font-medium text-sm text-slate-800 mb-1">ดูแลเขา อย่าลืมดูแลเรา (Boundary)</h5>
-                        <p class="text-xs text-slate-500 leading-relaxed">การดูแลคนป่วยดิ่งพสุธาอาจทำให้เราซึมซับพลังลบมาได้ ต้องตั้งขอบเขตให้ชัดเจน มีเวลาไปใช้ชีวิตของตัวเองเพื่อป้องกันไม่ให้ผู้ดูแลป่วยตามกันไปครับ</p>
+                    <div class="bg-white p-5 rounded-xl border border-neutral-100 minimal-shadow">
+                        <h5 class="font-medium text-xs text-neutral-800 mb-1.5">การรักษาสมดุลใจของผู้ดูแล (Boundary)</h5>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed">การดูแลผู้ที่มีภาวะดิ่งอาจทำให้เราซึมซับความเครียดมาได้ จำเป็นต้องตั้งขอบเขตที่ชัดเจน เพื่อไม่ให้พลังงานใจของตัวผู้ดูแลเองนั้นหมดลงไปด้วย</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="page-about" class="page text-center space-y-6">
-            <div class="bg-white p-8 rounded-3xl border border-slate-100 max-w-xl mx-auto">
-                <h3 class="text-xl font-semibold text-slate-800 mb-1">ผู้จัดทำโครงงาน</h3>
-                <p class="text-xs text-sky-400 mb-6">ความตั้งใจของพวกเราคือการสร้างพื้นที่ปลอดภัยให้กับเพื่อนๆ วัยรุ่นทุกคน</p>
+            <div class="bg-white p-10 rounded-2xl border border-neutral-100 minimal-shadow max-w-md mx-auto">
+                <h3 class="text-sm font-medium text-neutral-800 mb-1">คณะผู้จัดทำโครงงาน</h3>
+                <p class="text-[11px] text-neutral-400 mb-8">ความตั้งใจในการสร้างพื้นที่ปลอดภัยเพื่อวัยรุ่นทุกคน</p>
                 
-                <div class="space-y-3 text-slate-600 text-sm font-medium">
-                    <p>✨ นางสาวณัฐมน มั่งคัง ม.5/1 เลขที่ 17</p>
-                    <p>✨ นางสาวบุษบากร บุญจิตร ม.5/1 เลขที่ 23</p>
-                    <p>✨ นางสาวสุพิชญา แก้วไทย ม.5/1 เลขที่ 30</p>
+                <div class="space-y-3 text-neutral-600 text-xs font-normal">
+                    <p>นางสาวณัฐมน มั่งคัง ม.5/1 เลขที่ 17</p>
+                    <p>นางสาวบุษบากร บุญจิตร ม.5/1 เลขที่ 23</p>
+                    <p>นางสาวสุพิชญา แก้วไทย ม.5/1 เลขที่ 30</p>
                 </div>
                 
-                <div class="mt-8 pt-6 border-t border-slate-100">
-                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm mx-auto">
-                        พวกเราตั้งใจทำเว็บไซต์ <span class="font-medium text-slate-600">Anxiety in Teens</span> เพื่อให้วัยเรียนทุกคนมีจุดพักใจ ตระหนักรู้สุขภาพจิตตัวเอง และกล้าก้าวไปรับการช่วยเหลือที่ถูกต้อง 💕
-                    </p>
+                <div class="mt-8 pt-6 border-t border-neutral-100 text-[11px] text-neutral-400 leading-relaxed">
+                    พวกเราตั้งใจสร้างสรรค์เว็บไซต์ชิ้นนี้ขึ้นมาเพื่อมุ่งหวังให้ทุกคนตระหนักถึงความสำคัญของสุขภาพจิตใจ และไม่ลังเลใจที่จะก้าวออกไปรับความช่วยเหลืออย่างเหมาะสม 💕
                 </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="fixed bottom-0 left-0 right-0 bg-rose-50 border-t border-rose-100 py-3 px-4 z-50 text-center">
-        <p class="text-xs sm:text-sm font-medium text-rose-700">
-            🚨 รู้สึกดิ่งมาก ไม่ไหวแล้ว? สายด่วนสุขภาพจิต <a href="tel:1323" class="underline font-semibold">1323</a> หรือ <a href="tel:1667" class="underline font-semibold">1667</a> (โทรฟรี 24 ชม.) หรือทัก <a href="#" class="bg-emerald-500 text-white px-2 py-0.5 rounded-md text-xs inline-block font-normal ml-1">คุยผ่าน Line OA</a>
+    <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-100 py-4 px-6 z-50 text-center">
+        <p class="text-[11px] sm:text-xs text-neutral-500">
+            🚨 สายด่วนสุขภาพจิต <a href="tel:1323" class="underline font-medium text-neutral-700">1323</a> หรือ <a href="tel:1667" class="underline font-medium text-neutral-700">1667</a> (โทรฟรี 24 ชม.) | <a href="#" class="text-sky-500 font-medium ml-1">ปรึกษาผ่าน Line OA</a>
         </p>
     </footer>
 
     <script>
-        // รายการคำคมเติมพลังบวก (จะสุ่มเปลี่ยนได้)
         const quotes = [
             "วันนี้ทำเต็มที่แล้ว พักผ่อนให้เต็มอิ่ม พรุ่งนี้ค่อยลุยใหม่",
-            "สมองก็เหมือนแบตเตอรี่ อย่าลืมชาร์จไฟให้ตัวเองบ้างนะคนเก่ง",
+            "สมองก็เหมือนแบตเตอรี่ อย่าลืมชาร์จไฟให้ตัวเองบ้างนะ",
             "ก้าวเล็กๆ ในวันนี้ คือความสำเร็จที่ยิ่งใหญ่ในวันหน้า",
-            "หนึ่งวิชาที่ทำไม่ได้ ไม่ได้แปลว่าชีวิตเราจะล้มเหลวเลยสักนิด",
-            "ดอกไม้แต่ละชนิดบานไม่พร้อมกัน ชีวิตเราก็เช่นกันนะ",
-            "ยิ้มให้ตัวเองในกระจกหน่อยนะ... วันนี้เธอเก่งมากแล้ว",
-            "ความผิดพลาดคือการเรียนรู้ ไม่ใช่จุดจบของชีวิต",
+            "หนึ่งวิชาที่ทำไม่ได้ ไม่ได้แปลว่าชีวิตเราจะล้มเหลว",
+            "ดอกไม้แต่ละชนิดบานไม่พร้อมกัน ชีวิตเราก็เช่นกัน",
+            "ยิ้มให้ตัวเองในกระจกหน่อยนะ วันนี้เธอเก่งมากแล้ว",
+            "ความผิดพลาดคือการเรียนรู้ ไม่ใช่จุดจบ",
             "ท้องฟ้าหลังพายุพัดผ่าน มักจะสดใสเสมอ"
         ];
 
@@ -318,19 +277,17 @@
             document.getElementById('daily-quote').innerText = `"${quotes[randomIndex]}"`;
         }
 
-        // ย้ายหน้าจากหน้าแรกหลังกรอกข้อมูล
         function goToHome() {
             const name = document.getElementById('user-name').value.trim() || 'เพื่อนรัก';
             const age = document.getElementById('user-age').value.trim();
             
-            document.getElementById('welcome-msg').innerText = `สวัสดีครับคุณ ${name} ${age ? '(อายุ ' + age + ' ปี)' : ''}`;
+            document.getElementById('welcome-msg').innerText = `สวัสดีคุณ ${name} ${age ? '(อายุ ' + age + ' ปี)' : ''}`;
             
             document.getElementById('page-gate').classList.remove('active');
             document.getElementById('main-nav').classList.remove('hidden');
             switchPage('home');
         }
 
-        // ฟังก์ชันสลับหน้าเว็บแบบ Single Page
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -339,81 +296,65 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // คำนวณผลประเมิน 9Q + แมตช์กับข้อมูลอารมณ์ประจำวัน
         function calculateResult() {
             let totalScore = 0;
-            const form = document.getElementById('quiz-form');
             
-            // วนลูปนับคะแนน 9 ข้อ
             for (let i = 1; i <= 9; i++) {
-                const radios = form.elements[`q1`].length ? form.elements[`q${i}`] : null;
-                if(radios) {
-                    for (const radio of radios) {
-                        if (radio.checked) {
-                            totalScore += parseInt(radio.value);
-                            break;
-                        }
-                    }
+                const checkedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+                if (checkedRadio) {
+                    totalScore += parseInt(checkedRadio.value);
                 }
             }
 
-            // แปลผลคะแนนเกณฑ์ 9Q
             let resultText = "";
-            let statusColor = "text-slate-700";
             if (totalScore < 7) {
-                resultText = `คะแนนของคุณคือ **${totalScore} คะแนน**: อยู่ในเกณฑ์ "ปกติ/ไม่มีอาการซึมเศร้าหรือมีระดับน้อยมาก" สบายใจได้นะคุณเก่งมาก`;
+                resultText = `คะแนนสุทธิของคุณคือ ${totalScore} คะแนน: อยู่ในเกณฑ์ปกติหรือไม่มีอาการซึมเศร้า สบายใจได้ระดับหนึ่งเลยครับ`;
             } else if (totalScore <= 12) {
-                resultText = `คะแนนของคุณคือ **${totalScore} คะแนน**: อยู่ในเกณฑ์ "มีอาการซึมเศร้าระดับน้อย" ช่วงนี้อาจจะเหนื่อยล้าเป็นพิเศษ หาเวลาพักผ่อนและทำกิจกรรมที่ชอบดูนะ`;
+                resultText = `คะแนนสุทธิของคุณคือ ${totalScore} คะแนน: มีภาวะซึมเศร้าระดับน้อย ช่วงนี้อาจล้า ลองหาเวลาพักหรือทำกิจกรรมผ่อนคลายนะครับ`;
             } else if (totalScore <= 18) {
-                resultText = `คะแนนของคุณคือ **${totalScore} คะแนน**: อยู่ในเกณฑ์ "มีอาการซึมเศร้าระดับปานกลาง" แนะนำให้หาเพื่อนสนิทที่ไว้ใจได้คุยระบาย หรือลองติดต่อสายด่วน 1323 เพื่อระบายใจดูครับ`;
+                resultText = `คะแนนสุทธิของคุณคือ ${totalScore} คะแนน: มีภาวะซึมเศร้าระดับปานกลาง แนะนำให้พูดคุยกับคนใกล้ชิดที่ไว้ใจ หรือโทรสายด่วน 1323 เพื่อระบายความเครียดครับ`;
             } else {
-                resultText = `คะแนนของคุณคือ **${totalScore} คะแนน**: อยู่ในเกณฑ์ "มีอาการซึมเศร้าระดับรุนแรง" แนะนำให้ลองไปพูดคุยกับคุณหมอจิตแพทย์หรือนักจิตวิทยาดูนะ การพบหมอไม่ใช่เรื่องน่ากลัว แต่คือการไปรับความรักและวิธีการรักษาใจที่ถูกต้องครับ`;
+                resultText = `คะแนนสุทธิของคุณคือ ${totalScore} คะแนน: มีภาวะซึมเศร้าระดับรุนแรง แนะนำให้ลองเข้าพบจิตแพทย์หรือนักจิตวิทยาเพื่อรับคำแนะนำที่ถูกต้องและปลอดภัยที่สุดนะครับ`;
             }
 
             document.getElementById('result-text').innerHTML = resultText;
 
-            // ดึงข้อแนะนำตามจิตวิทยาที่ผู้ใช้เลือกในตอนแรก (Actionable Content)
             const situation = document.getElementById('feeling-select').value;
             let tipText = "";
             if (situation === 'study') {
-                tipText = `✍️ **เมื่อเครียดเรื่องสอบ/การบ้าน:**<br>
-                           • **กิจกรรม:** ใช้เทคนิค Pomodoro (อ่านหนังสือ 25 นาที แล้วพักเบรก 5 นาที) หรือเปิดฟังคลื่นเสียง Alpha Waves ตอนอ่านหนังสือ<br>
-                           • **หลักจิตวิทยา:** Focus on Process — ให้โฟกัสแค่การลงมือทำทีละนิดในตอนนี้ อย่าเพิ่งดึงสมองไปคิดถึงผลลัพธ์ที่ยังไม่เกิดขึ้นครับ`;
+                tipText = `✍️ **จัดการความเครียดเรื่องเรียน:**<br>
+                           • ใช้เทคนิค Pomodoro (อ่านหนังสือ 25 นาที สลับเบรก 5 นาที)<br>
+                           • ปรับวิธีคิดแบบ Focus on Process — ให้ความสำคัญกับการพยายามในปัจจุบันทีละนิด แทนการกังวลกับผลลัพธ์ล่วงหน้า`;
             } else if (situation === 'friend') {
-                tipText = `🤝 **เมื่อทะเลาะกับเพื่อน/รู้สึกโดดเดี่ยว:**<br>
-                           • **กิจกรรม:** ลองเขียนระบายความรู้สึกลงกระดาษหรือสมุด (Journaling) และกดปิด/พักตัดขาดจากโลกโซเชียลมีเดียสัก 30 นาที<br>
-                           • **หลักจิตวิทยา:** Self-Compassion — โอบกอดและบอกตัวเองเบาๆ ว่า "ไม่เป็นไรนะ ใครๆ ก็เคยทำพลาดหรือรู้สึกแปลกแยกโดดเดี่ยวแบบนี้ได้ทั้งนั้น"`;
+                tipText = `🤝 **รับมือกับความโดดเดี่ยว/ปัญหากับเพื่อน:**<br>
+                           • ลองทำข้อความบันทึกความรู้สึก (Journaling) เพื่อเรียบเรียงอารมณ์ และลดการใช้โซเชียลมีเดียลงชั่วคราว<br>
+                           • ฝึกแนวคิด Self-Compassion — โอบกอดตนเองและตระหนักว่าความผิดพลาดหรือความรู้สึกแปลกแยกเป็นเรื่องปกติธรรมดาที่ทุกคนสามารถเผชิญได้`;
             } else if (situation === 'burnout') {
-                tipText = `🔋 **เมื่อรู้สึกหมดไฟ/ขี้เกียจ:**<br>
-                           • **กิจกรรม:** ลุกขึ้นยืนบิดขี้เกียจ สูดหายใจลึกๆ 1 นาที หรือลองจัดโต๊ะเขียนหนังสือใหม่หยิบของที่รกๆ ออกเล็กน้อย<br>
-                           • **หลักจิตวิทยา:** Small Wins — ฉลองความสำเร็จเรื่องเล็กๆ ในวันนั้น เช่น วันนี้แค่ลุกมาอาบน้ำได้ หรือแค่ดื่มน้ำครบแก้ว... เธอเก่งและยอดเยี่ยมแล้วนะ`;
+                tipText = `🔋 **ฟื้นฟูภาวะหมดไฟ:**<br>
+                           • หยุดพักปรับเปลี่ยนอิริยาบถ สูดลมหายใจลึกๆ 1 นาที หรือลองจัดสภาพแวดล้อมรอบตัวใหม่<br>
+                           • ให้ความสำคัญกับ Small Wins — ร่วมยินดีกับความสำเร็จเล็กๆ น้อยๆ ในแต่ละวันเพื่อเพิ่มพลังใจ`;
             } else {
-                tipText = `☀️ **หัวใจคุณกำลังดีเยี่ยม!**<br>รักษาพลังบวกและความน่ารักนี้ไว้ และอย่าลืมแบ่งปันรอยยิ้มหรือคำชมดีๆ ให้เพื่อนรอบข้างด้วยนะ`;
+                tipText = `☀️ สภาวะจิตใจของคุณอยู่ในเกณฑ์ดีมาก รักษาความสมดุลนี้ไว้ และแบ่งปันพลังงานบวกแก่คนรอบข้างนะครับ`;
             }
 
             document.getElementById('psychology-tip').innerHTML = tipText;
             
-            // แสดงกล่องผลลัพธ์
             const resBox = document.getElementById('result-box');
             resBox.classList.remove('hidden');
             resBox.scrollIntoView({behavior: 'smooth'});
         }
 
-        // จัดการระดับหลังได้รับคำแนะนำ (Before - After สรุปผลสำหรับโครงงาน)
         function afterAssessment(status) {
             const beforeVal = document.getElementById('stress-before').value;
             const msgEl = document.getElementById('after-msg');
             msgEl.classList.remove('hidden');
 
             if (status === 'ดีขึ้น') {
-                msgEl.innerText = `🎉 เยี่ยมเลย! วันนี้ระบบของเราสามารถช่วยผ่อนคลายและลดความเครียดของคุณจากระดับ ${beforeVal} ลงมาได้ ยินดีด้วยนะครับ!`;
-                msgEl.className = "text-xs text-teal-600 mt-2 font-medium";
+                msgEl.innerText = `ระบบบันทึกความเปลี่ยนแปลง: ระดับความกังวลเดิมของคุณ (${beforeVal}/5) ได้รับการบรรเทาลง ขอให้รักษาสภาพจิตใจที่ดีไว้ครับ`;
             } else if (status === 'เท่าเดิม') {
-                msgEl.innerText = `🌱 ไม่เป็นไรนะ ความรู้สึกต้องใช้เวลาปรับตัว ค่อยๆ เอาเทคนิคจิตวิทยาด้านบนไปปรับใช้ดูครับ หรือโทรปรึกษา 1323 ได้เลยนะ`;
-                msgEl.className = "text-xs text-slate-500 mt-2 font-medium";
+                msgEl.innerText = `ระบบบันทึกความเปลี่ยนแปลง: อารมณ์ยังไม่เปลี่ยนแปลงในทันที ค่อยๆ ปรับตัวตามคำแนะนำ หรือใช้ช่องทางสายด่วนด้านล่างเพื่อพูดคุยได้ตลอดเวลาครับ`;
             } else {
-                msgEl.innerText = `⚠️ หากรู้สึกแย่ลงอย่างชัดเจน แนะนำให้กดโทรหาสายด่วน 1323 ที่แถบด้านล่างทันทีเลยนะครับ มีเจ้าหน้าที่ผู้เชี่ยวชาญพร้อมรับฟังอย่างปลอดภัยเสมอ`;
-                msgEl.className = "text-xs text-rose-600 mt-2 font-medium";
+                msgEl.innerText = `คำแนะนำเพิ่มเติม: หากรู้สึกกังวลใจมากขึ้น แนะนำให้ติดต่อเจ้าหน้าที่ผ่านสายด่วน 1323 เพื่อความปลอดภัยและรับคำปรึกษาที่เหมาะสมโดยตรง`;
             }
         }
     </script>

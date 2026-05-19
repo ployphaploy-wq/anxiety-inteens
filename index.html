@@ -37,7 +37,6 @@
     color: var(--text-dark);
     line-height: 1.8;
     overflow-x: hidden;
-    font-size: 17px;
   }
 
   /* ─── UTILITY ─────────────────── */
@@ -47,51 +46,52 @@
   /* ─── NAV ─────────────────────── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(250,250,248,0.95);
+    background: rgba(250,250,248,0.92);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     padding: 0 28px;
-    height: 70px;
   }
   .nav-inner {
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
-    height: 100%;
+    height: 64px;
   }
   .nav-logo {
     font-family: 'Prompt', sans-serif;
-    font-weight: 600; font-size: 1.25rem;
+    font-weight: 600; font-size: 1.15rem;
     color: var(--mint); text-decoration: none;
     display: flex; align-items: center; gap: 8px;
   }
   .nav-logo span { color: var(--text-dark); font-weight: 300; }
   
-  /* Hamburger Menu Button */
+  /* เพิ่ม Hamburger Menu สำหรับมือถือ */
   .menu-toggle {
     display: none; font-size: 1.8rem; color: var(--mint); cursor: pointer;
   }
 
-  .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
   .nav-links a {
     text-decoration: none; color: var(--text-mid);
-    font-size: 1rem; padding: 8px 16px; border-radius: 20px;
+    font-size: 0.9rem; padding: 6px 14px; border-radius: 20px;
     transition: all 0.2s;
   }
   .nav-links a:hover { background: var(--mint-pale); color: var(--mint); }
   .nav-cta {
     background: var(--mint); color: white !important;
-    padding: 10px 22px !important; border-radius: 24px !important;
-    font-weight: 500 !important;
+    padding: 8px 20px !important; border-radius: 24px !important;
+    font-weight: 500 !important; transition: all 0.2s !important;
   }
+  .nav-cta:hover { background: #6ab5b5 !important; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(126,200,200,0.4) !important; }
 
   /* ─── EMERGENCY BANNER ────────── */
   .emergency-banner {
     background: linear-gradient(135deg, #FF8B6E, #FF6B6B);
-    color: white; text-align: center; padding: 12px 20px;
-    font-size: 1rem; font-weight: 500;
-    margin-top: 70px;
+    color: white; text-align: center; padding: 10px 20px;
+    font-size: 0.88rem; font-weight: 500;
+    margin-top: 64px;
   }
-  .emergency-banner a { color: white; font-weight: 700; text-decoration: underline; }
+  .emergency-banner strong { font-weight: 700; }
+  .emergency-banner a { color: white; text-decoration: underline; }
 
   /* ─── PAGES ───────────────────── */
   .page { display: none; min-height: 100vh; }
@@ -101,94 +101,277 @@
   #page-register {
     display: flex; align-items: center; justify-content: center;
     min-height: 100vh; background: var(--cream);
-    padding: 20px;
+    padding: 100px 20px 40px;
   }
   .register-card {
     background: white; border-radius: 28px;
-    padding: 56px 40px; max-width: 480px; width: 100%;
+    padding: 56px 48px; max-width: 460px; width: 100%;
     box-shadow: 0 8px 48px rgba(126,200,200,0.18);
     text-align: center;
   }
-  .register-logo { font-size: 4rem; margin-bottom: 8px; }
+  .register-logo { font-size: 2.4rem; margin-bottom: 8px; }
   .register-card h1 {
-    font-family: 'Prompt', sans-serif; font-size: 1.8rem;
+    font-family: 'Prompt', sans-serif; font-size: 1.6rem;
     font-weight: 600; color: var(--mint); margin-bottom: 6px;
   }
   .register-card .tagline {
-    color: var(--text-soft); font-size: 1rem; margin-bottom: 36px;
+    color: var(--text-soft); font-size: 0.9rem; margin-bottom: 36px;
   }
+  .form-group { margin-bottom: 20px; text-align: left; }
+  .form-group label {
+    display: block; font-size: 0.88rem; font-weight: 600;
+    color: var(--text-mid); margin-bottom: 8px;
+  }
+  .form-group input {
+    width: 100%; padding: 14px 18px;
+    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    font-family: 'Sarabun', sans-serif; font-size: 1rem;
+    background: var(--cream); color: var(--text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-group input:focus {
+    border-color: var(--mint);
+    box-shadow: 0 0 0 3px rgba(126,200,200,0.15);
+  }
+  .btn-primary {
+    width: 100%; padding: 15px; border: none;
+    background: linear-gradient(135deg, var(--mint), var(--sky));
+    color: white; border-radius: var(--radius-sm);
+    font-family: 'Sarabun', sans-serif; font-size: 1.05rem;
+    font-weight: 600; cursor: pointer;
+    transition: all 0.3s; margin-top: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(126,200,200,0.4); }
+  .btn-primary:active { transform: translateY(0); }
 
   /* ─── HOME PAGE ──────────────── */
+  #page-home { padding-top: 0; }
+
   .hero {
-    min-height: 90vh; display: flex; align-items: center;
+    min-height: 92vh; display: flex; align-items: center;
     background: linear-gradient(160deg, var(--mint-pale) 0%, var(--sky-pale) 50%, var(--cream) 100%);
-    padding: 120px 28px 60px; text-align: center;
+    position: relative; overflow: hidden; padding: 100px 28px 60px;
   }
-  .hero-content { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .hero::before {
+    content: ''; position: absolute;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(126,200,200,0.12), transparent 70%);
+    top: -100px; right: -100px;
+  }
+  .hero::after {
+    content: ''; position: absolute;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(168,213,226,0.1), transparent 70%);
+    bottom: -60px; left: -60px;
+  }
+  .hero-content { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white; color: var(--mint); border-radius: 20px;
+    padding: 6px 16px; font-size: 0.82rem; font-weight: 600;
+    box-shadow: var(--shadow-card); margin-bottom: 24px;
+  }
   .hero h1 {
     font-family: 'Prompt', sans-serif;
-    font-size: clamp(2.2rem, 8vw, 3.8rem);
-    font-weight: 600; line-height: 1.3; margin-bottom: 25px;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600; line-height: 1.4;
+    color: var(--text-dark); margin-bottom: 20px; max-width: 640px;
   }
   .hero h1 em { color: var(--mint); font-style: normal; }
+  .hero p {
+    font-size: 1.1rem; color: var(--text-mid); max-width: 520px;
+    margin-bottom: 36px; line-height: 1.9;
+  }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-hero {
+    padding: 15px 32px; border-radius: 28px; font-size: 1rem;
+    font-family: 'Sarabun', sans-serif; font-weight: 600;
+    cursor: pointer; transition: all 0.3s; border: none;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-hero-primary {
+    background: linear-gradient(135deg, var(--mint), #6ab5b5);
+    color: white; box-shadow: 0 6px 24px rgba(126,200,200,0.35);
+  }
+  .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(126,200,200,0.45); }
+  .btn-hero-secondary {
+    background: white; color: var(--mint);
+    border: 1.5px solid var(--mint-light);
+  }
+  .btn-hero-secondary:hover { background: var(--mint-pale); }
 
-  /* ─── ASSESSMENT ─── */
+  /* quote rotator */
+  .quote-strip {
+    background: white; border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden;
+  }
+  .quote-track {
+    display: flex; gap: 60px; width: max-content;
+    animation: scrollQuotes 30s linear infinite;
+  }
+  .quote-track span {
+    white-space: nowrap; font-size: 0.9rem; color: var(--text-soft);
+    padding: 0 10px;
+  }
+  .quote-track span::before { content: '✦  '; color: var(--mint); }
+  @keyframes scrollQuotes {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* features */
+  .features { padding: 80px 0; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--mint); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Prompt', sans-serif; font-size: 2rem;
+    font-weight: 600; color: var(--text-dark); margin-bottom: 48px;
+  }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card {
+    background: white; border-radius: var(--radius);
+    padding: 36px 28px; box-shadow: var(--shadow-card);
+    transition: all 0.3s; border: 1px solid transparent;
+    cursor: pointer; text-decoration: none; color: inherit; display: block;
+  }
+  .feature-card:hover {
+    transform: translateY(-6px); box-shadow: var(--shadow-soft);
+    border-color: var(--mint-light);
+  }
+  .feature-icon { font-size: 2.2rem; margin-bottom: 16px; }
+  .feature-card h3 {
+    font-family: 'Prompt', sans-serif; font-size: 1.1rem; font-weight: 600;
+    color: var(--text-dark); margin-bottom: 10px;
+  }
+  .feature-card p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.8; }
+
+  /* daily quote */
+  .daily-quote-section { padding: 60px 0; }
+  .daily-quote-card {
+    background: linear-gradient(135deg, var(--mint), var(--sky));
+    border-radius: 28px; padding: 56px 48px; text-align: center; color: white;
+    position: relative; overflow: hidden;
+  }
+  .daily-quote-card::before {
+    content: '❝'; position: absolute; top: 20px; left: 32px;
+    font-size: 6rem; opacity: 0.15; font-family: serif;
+  }
+  .daily-quote-card blockquote {
+    font-family: 'Prompt', sans-serif; font-size: 1.5rem;
+    font-weight: 500; line-height: 1.7; margin-bottom: 16px;
+    position: relative;
+  }
+  .daily-quote-card cite { font-size: 0.85rem; opacity: 0.8; }
+  .quote-dots { display: flex; gap: 8px; justify-content: center; margin-top: 24px; }
+  .quote-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.2s; }
+  .quote-dot.active { background: white; width: 24px; border-radius: 4px; }
+
+  /* ─── SELF-ASSESSMENT ─────────── */
+  #page-assessment { padding: 90px 0 60px; }
+  .assessment-intro {
+    text-align: center; max-width: 580px; margin: 0 auto 48px;
+  }
+  .assessment-intro h2 {
+    font-family: 'Prompt', sans-serif; font-size: 1.9rem;
+    font-weight: 600; color: var(--text-dark); margin-bottom: 12px;
+  }
+  .assessment-intro p { color: var(--text-soft); font-size: 0.95rem; }
+
   .assessment-card {
-    max-width: 850px; margin: 0 auto;
-    background: white; border-radius: var(--radius); padding: 45px 30px;
+    max-width: 700px; margin: 0 auto;
+    background: white; border-radius: var(--radius); padding: 40px;
     box-shadow: var(--shadow-card);
   }
-  .q9-question { margin-bottom: 35px; padding-bottom: 30px; border-bottom: 1px solid var(--border); }
-  .q9-question p { font-size: 1.15rem; font-weight: 600; margin-bottom: 18px; }
-  .q9-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+
+  /* mood check */
+  .mood-section { margin-bottom: 36px; }
+  .mood-section h3 {
+    font-size: 1rem; font-weight: 600; color: var(--text-mid); margin-bottom: 16px;
+  }
+  .mood-emoji-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+  .mood-btn {
+    padding: 10px 18px; border-radius: 24px; border: 1.5px solid var(--border);
+    background: var(--cream); cursor: pointer; font-family: 'Sarabun', sans-serif;
+    font-size: 0.9rem; transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+  }
+  .mood-btn:hover, .mood-btn.selected {
+    border-color: var(--mint); background: var(--mint-pale); color: var(--mint);
+  }
+
+  .energy-slider { width: 100%; margin: 8px 0; accent-color: var(--mint); cursor: pointer; }
+  .energy-labels { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-light); }
+
+  /* New Q8 and 9Q questions */
+  .q9-question { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .q9-question:last-child { border-bottom: none; }
+  .q9-question p { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 14px; font-weight: 500; }
+  .q9-options { display: flex; gap: 8px; flex-wrap: wrap; }
   .q9-opt {
-    padding: 15px; text-align: center; border: 1.5px solid var(--border);
-    border-radius: 12px; cursor: pointer; font-size: 1rem; background: var(--cream);
+    flex: 1; min-width: 100px; padding: 10px 8px; text-align: center;
+    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    cursor: pointer; font-size: 0.82rem; font-family: 'Sarabun', sans-serif;
+    background: var(--cream); transition: all 0.2s; color: var(--text-mid);
   }
-  .q9-opt.selected { border-color: var(--mint); background: var(--mint-pale); color: var(--mint); font-weight: 700; }
-
-  /* ─── FOOTER ─── */
-  footer { background: white; padding: 50px 28px; border-top: 1px solid var(--border); text-align: center; }
-  .footer-hotline {
-    background: var(--mint-pale); border-radius: 20px; padding: 30px;
-    display: inline-block; width: 100%; max-width: 600px;
+  .q9-opt:hover, .q9-opt.selected {
+    border-color: var(--mint); background: var(--mint-pale); color: var(--mint); font-weight: 600;
   }
-  .footer-links-row { display: flex; justify-content: center; gap: 25px; font-size: 1.8rem; font-family: 'Prompt', sans-serif; margin-top: 10px; }
-  .footer-links-row a { color: var(--mint); text-decoration: none; font-weight: 700; }
 
-  /* ─── RESPONSIVE ─── */
+  .stress-stars { display: flex; gap: 8px; font-size: 1.6rem; cursor: pointer; }
+  .stress-stars span { transition: transform 0.15s; opacity: 0.3; }
+  .stress-stars span.active { opacity: 1; transform: scale(1.1); }
+
+  .btn-assess {
+    width: 100%; padding: 16px; border: none;
+    background: linear-gradient(135deg, var(--mint), var(--sky));
+    color: white; border-radius: var(--radius-sm);
+    font-family: 'Sarabun', sans-serif; font-size: 1.05rem; font-weight: 600;
+    cursor: pointer; margin-top: 12px; transition: all 0.3s;
+  }
+  .btn-assess:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(126,200,200,0.4); }
+
+  .result-box {
+    display: none; margin-top: 28px; padding: 28px;
+    border-radius: var(--radius-sm); text-align: center;
+  }
+  .result-box h3 { font-family: 'Prompt', sans-serif; font-size: 1.3rem; margin-bottom: 10px; }
+  .result-box p { font-size: 0.9rem; margin-bottom: 16px; }
+  .result-low { background: var(--sage-pale); color: #3d7a3d; border: 1px solid #9DC08B; }
+  .result-mid { background: #FFF8E6; color: #7a5a00; border: 1px solid #F0C866; }
+  .result-high { background: #FFF0EE; color: #9b3a2a; border: 1px solid #F4A090; }
+
+  /* ─── RESPONSIVE NAV FIX ─── */
   @media (max-width: 992px) {
     .menu-toggle { display: block; }
     .nav-links {
-      display: none; position: absolute; top: 70px; left: 0; right: 0;
-      background: white; flex-direction: column; padding: 30px; border-bottom: 1px solid var(--border);
+      display: none; position: absolute; top: 64px; left: 0; right: 0;
+      background: white; flex-direction: column; padding: 20px; border-bottom: 1px solid var(--border);
     }
     .nav-links.active { display: flex; }
-    .nav-links a { font-size: 1.2rem; padding: 15px; width: 100%; text-align: center; }
+    .nav-links a { width: 100%; text-align: center; padding: 12px; }
   }
 
-  /* คืนค่าดีไซน์เดิมของคุณ */
-  .quote-strip { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
-  .quote-track { display: flex; gap: 60px; width: max-content; animation: scrollQuotes 30s linear infinite; }
-  @keyframes scrollQuotes { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 40px 0; }
-  .feature-card { background: white; border-radius: var(--radius); padding: 36px 28px; box-shadow: var(--shadow-card); cursor: pointer; text-decoration: none; color: inherit; transition: 0.3s; }
-  .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); border: 1px solid var(--mint-light); }
-  .daily-quote-card { background: linear-gradient(135deg, var(--mint), var(--sky)); border-radius: 28px; padding: 56px 48px; text-align: center; color: white; position: relative; overflow: hidden; }
-  .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .article-card { background: white; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-card); transition: 0.3s; cursor: pointer; }
-  .article-tag { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; }
-  .tag-symptom { background: #FFE9E9; color: #C0392B; }
-  .tag-treat { background: #E9F5FF; color: #1A6FA0; }
-  .tag-care { background: var(--sage-pale); color: #2E7D32; }
+  @media (max-width: 768px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .counseling-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 1.8rem; }
+  }
+
+  /* ─── RESOURCES ─── */
+  .articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .article-card { background: white; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-card); cursor: pointer; }
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: 0.3s; }
   .modal-overlay.show { opacity: 1; pointer-events: all; }
-  .modal-box { background: white; border-radius: var(--radius); padding: 40px; max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; }
+  .modal-box { background: white; border-radius: var(--radius); padding: 40px; max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; }
 </style>
 </head>
 <body>
 
-<!-- PAGE: REGISTER (หน้านี้จะหายไปเมื่อกดปุ่ม) -->
+<!-- ═══ REGISTER PAGE ═══ -->
 <div id="page-register" class="page active">
   <div class="register-card">
     <div class="register-logo">🌿</div>
@@ -206,7 +389,7 @@
   </div>
 </div>
 
-<!-- NAVIGATION (จะแสดงหลังจากกรอกชื่อ) -->
+<!-- ═══ NAVIGATION ═══ -->
 <nav id="main-nav" class="hidden">
   <div class="nav-inner">
     <a href="javascript:void(0)" class="nav-logo" onclick="showPage('home')">🌿 <span>Anxiety in Teens</span></a>
@@ -217,106 +400,83 @@
       <li><a href="javascript:void(0)" onclick="showPage('resources'); closeMenu();">คลังความรู้</a></li>
       <li><a href="javascript:void(0)" onclick="showPage('counseling'); closeMenu();">พื้นที่รับฟัง</a></li>
       <li><a href="javascript:void(0)" onclick="showPage('about'); closeMenu();">เกี่ยวกับเรา</a></li>
-      <li><a href="javascript:void(0)" class="nav-cta" onclick="showPage('assessment'); closeMenu();">เริ่มประเมินใจ</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- EMERGENCY BANNER -->
+<!-- ═══ EMERGENCY BANNER ═══ -->
 <div id="emergency-banner" class="emergency-banner hidden">
-  🆘 <strong>สายด่วนสุขภาพจิต <a href="tel:1323">1323</a></strong> | <strong><a href="tel:1667">1667</a></strong> (โทรฟรีตลอด 24 ชม.)
+  🆘 <strong>สายด่วนสุขภาพจิต <a href="tel:1323">1323</a></strong> &nbsp;|&nbsp; กรมสุขภาพจิต <strong><a href="tel:1667">1667</a></strong> &nbsp;|&nbsp; โทรฟรีตลอด 24 ชั่วโมง
 </div>
 
-<!-- PAGE: HOME -->
+<!-- ═══ HOME PAGE ═══ -->
 <div id="page-home" class="page">
   <section class="hero">
     <div class="hero-content">
-      <div style="background:white; padding:6px 16px; border-radius:20px; display:inline-block; font-size:0.9rem; font-weight:600; color:var(--mint); margin-bottom:20px;">🌱 พื้นที่ปลอดภัยสำหรับทุกคน</div>
+      <div class="hero-badge">🌱 พื้นที่ปลอดภัยสำหรับทุกคน</div>
       <h1>ดูแลใจของคุณ<br>เพราะ<em>ใจสำคัญ</em><br>ไม่แพ้ร่างกาย</h1>
       <p>เว็บไซต์นี้สร้างขึ้นเพื่อเป็นพื้นที่ให้ทุกคนได้ดูแลสุขภาพจิตของตนเอง</p>
-      <button class="btn-primary" style="max-width:320px; margin: 0 auto;" onclick="showPage('assessment')">🔍 เริ่มประเมินอาการ</button>
+      <div class="hero-buttons">
+        <button class="btn-hero btn-hero-primary" onclick="showPage('assessment')">🔍 เริ่มประเมินอาการ</button>
+        <button class="btn-hero btn-hero-secondary" onclick="showPage('resources')">📚 คลังความรู้</button>
+      </div>
     </div>
   </section>
 
-  <!-- เนื้อหาบทความและส่วนประกอบเดิมของคุณ -->
   <div class="quote-strip">
     <div class="quote-track">
       <span>วันนี้ทำเต็มที่แล้ว พักผ่อนให้เต็มอิ่ม</span>
-      <span>ดอกไม้แต่ละชนิดบานไม่พร้อมกัน ชีวิตเราก็เช่นกัน</span>
       <span>ก้าวเล็กๆ ในวันนี้ คือความสำเร็จที่ยิ่งใหญ่</span>
     </div>
   </div>
 
-  <section class="container" style="padding: 80px 0;">
+  <section class="features container">
     <div class="features-grid">
-      <div class="feature-card" onclick="showPage('assessment')"><h3>💚 เช็กใจวันนี้</h3><p>ประเมินสภาวะจิตใจและอารมณ์ของคุณในวันนี้</p></div>
-      <div class="feature-card" onclick="showPage('resources')"><h3>📖 คลังความรู้</h3><p>บทความให้ความรู้เรื่องสุขภาพจิต</p></div>
+      <div class="feature-card" onclick="showPage('assessment')"><h3>💚 เช็กใจวันนี้</h3><p>ประเมินสภาวะจิตใจและอารมณ์ของคุณ</p></div>
+      <div class="feature-card" onclick="showPage('resources')"><h3>📖 คลังความรู้</h3><p>บทความสุขภาพจิตที่คัดสรรมาเพื่อคุณ</p></div>
       <div class="feature-card" onclick="showPage('counseling')"><h3>🤝 พื้นที่รับฟัง</h3><p>ส่งข้อความระบายความรู้สึกถึงเรา</p></div>
     </div>
   </section>
 </div>
 
-<!-- PAGE: ASSESSMENT -->
+<!-- ═══ ASSESSMENT PAGE ═══ -->
 <div id="page-assessment" class="page">
-  <div class="container" style="padding: 120px 0 60px;">
+  <div class="container">
     <div class="assessment-card">
       <h2 style="font-family:Prompt; text-align:center; margin-bottom:30px;">สำรวจความรู้สึกของคุณ</h2>
       
-      <!-- เพิ่มคำถาม 8 ข้อใหม่ -->
+      <!-- คำถาม 8 ข้อใหม่ -->
       <div id="q8-container"></div>
 
       <hr style="margin:40px 0; border:none; border-top:1px solid var(--border);">
-      <p style="text-align:center; font-weight:700; margin-bottom:25px;">แบบประเมินภาวะซึมเศร้า PHQ-9</p>
+      <p style="text-align:center; font-weight:700; margin-bottom:20px;">แบบประเมิน PHQ-9</p>
       <div id="q9-container"></div>
 
-      <button class="btn-primary" style="margin-top:30px;" onclick="submitAssessment()">ดูผลการประเมิน 🌸</button>
-      
-      <div id="result-box" style="display:none; margin-top:30px; padding:30px; border-radius:20px; text-align:center;">
-        <h3 id="result-title" style="font-family:Prompt;"></h3>
+      <button class="btn-assess" onclick="submitAssessment()">ดูผลการประเมิน 🌸</button>
+      <div id="result-box" class="result-box">
+        <h3 id="result-title"></h3>
         <p id="result-desc"></p>
-        <button class="btn-primary" style="margin-top:20px; max-width:300px;" onclick="showPage('counseling')">ไปพื้นที่รับฟังต่อ 💙</button>
+        <button class="btn-assess" onclick="showPage('vent')">ระบายความรู้สึกต่อ 💙</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PAGE: COUNSELING (ระบายความรู้สึก) -->
-<div id="page-counseling" class="page">
-  <div class="container" style="padding-top:120px;">
+<!-- ═══ VENT PAGE ═══ -->
+<div id="page-vent" class="page">
+  <div class="container" style="padding-top:100px;">
     <div class="assessment-card" style="text-align:center;">
       <h2 style="font-family:Prompt; margin-bottom:15px;">บอกเราได้เลยนะ 💙</h2>
-      <p style="color:var(--text-soft); margin-bottom:30px;">เราพร้อมรับฟังทุกความรู้สึกของคุณ</p>
       <h3 style="font-size:1.1rem; margin-bottom:15px;">💬 วันนี้อยากระบายอะไรบ้าง?</h3>
-      <textarea id="vent-message" style="width:100%; min-height:250px; padding:20px; border-radius:15px; border:2px solid var(--border); font-family:Sarabun; font-size:1.1rem; outline:none;" placeholder="พิมพ์ระบายได้เลยนะ..."></textarea>
-      <button class="btn-primary" style="margin-top:20px;" onclick="alert('ส่งความรู้สึกเรียบร้อยแล้ว')">ส่งความรู้สึก 🌸</button>
+      <textarea id="vent-message" style="width:100%; min-height:200px; padding:20px; border-radius:15px; border:2px solid var(--border); font-family:Sarabun;" placeholder="พิมพ์ตรงนี้ได้เลย..."></textarea>
+      <button class="btn-assess" onclick="alert('ขอบคุณที่ไว้ใจเรานะ 💙')">ส่งความรู้สึก 🌸</button>
     </div>
   </div>
 </div>
 
-<!-- PAGE: ABOUT (เกี่ยวกับเรา - แก้ โครงงาน) -->
-<div id="page-about" class="page">
-  <div class="container" style="padding: 120px 28px;">
-    <div style="text-align:center; margin-bottom:60px;">
-      <h2 style="font-family:Prompt; font-size:2.2rem;">เกี่ยวกับเรา</h2>
-      <p>จัดทำโดยนักเรียนชั้นมัธยมศึกษาปีที่ 5/1</p>
-    </div>
-
-    <div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-bottom:50px;">
-      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">🌸 <h4>ณัฐมน มั่งคัง</h4><p>เลขที่ 17</p></div>
-      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">🌼 <h4>บุษบากร บุญจิตร</h4><p>เลขที่ 23</p></div>
-      <div style="background:white; padding:30px; border-radius:20px; text-align:center; box-shadow:var(--shadow-card);">🌷 <h4>สุพิชญา แก้วไทย</h4><p>เลขที่ 30</p></div>
-    </div>
-
-    <div style="background:white; border-radius:var(--radius); padding:40px; box-shadow:var(--shadow-card); text-align:center;">
-      <h3 style="font-family:'Prompt',sans-serif; font-size:1.4rem; color:var(--mint); margin-bottom:15px;">วัตถุประสงค์ของโครงงาน</h3>
-      <p>เพื่อสร้างพื้นที่ปลอดภัยให้วัยรุ่นประเมินสุขภาพจิตเบื้องต้น</p>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE: RESOURCES (คลังความรู้เดิม) -->
+<!-- ═══ RESOURCES PAGE (ครบทุกบทความ) ═══ -->
 <div id="page-resources" class="page">
-  <div class="container" style="padding: 120px 28px;">
+  <div class="container" style="padding-top:100px;">
     <h2 style="font-family:Prompt; text-align:center; margin-bottom:40px;">คลังความรู้</h2>
     <div class="articles-grid">
       <div class="article-card" onclick="openModal('dep-vs-sad')"><h3>ซึมเศร้า vs แค่เศร้า</h3></div>
@@ -327,36 +487,67 @@
   </div>
 </div>
 
-<footer id="main-footer" class="hidden">
-  <div class="footer-hotline">
-    <strong>🆘 สายด่วนสุขภาพจิต (โทรฟรี 24 ชม.)</strong>
-    <div class="footer-links-row">
-      <a href="tel:1323">1323</a> | <a href="tel:1667">1667</a>
+<!-- ═══ ABOUT PAGE ═══ -->
+<div id="page-about" class="page">
+  <div class="container" style="padding-top:100px;">
+    <h2 style="font-family:Prompt; text-align:center; margin-bottom:40px;">เกี่ยวกับเรา</h2>
+    <div class="team-grid">
+      <div class="team-card" style="background:white; padding:30px; border-radius:20px; text-align:center;">🌸 <h4>ณัฐมน มั่งคัง</h4><p>ม.5/1 เลขที่ 17</p></div>
+      <div class="team-card" style="background:white; padding:30px; border-radius:20px; text-align:center;">🌼 <h4>บุษบากร บุญจิตร</h4><p>ม.5/1 เลขที่ 23</p></div>
+      <div class="team-card" style="background:white; padding:30px; border-radius:20px; text-align:center;">🌷 <h4>สุพิชญา แก้วไทย</h4><p>ม.5/1 เลขที่ 30</p></div>
+    </div>
+    <div style="background:white; padding:40px; border-radius:20px; text-align:center; margin-top:40px;">
+      <h3 style="font-family:Prompt; color:var(--mint);">วัตถุประสงค์ของโครงงาน</h3>
+      <p>สร้างพื้นที่ปลอดภัยให้วัยรุ่นประเมินสุขภาพจิตเบื้องต้น</p>
     </div>
   </div>
-  <p style="margin-top:30px; color:var(--text-soft);">© 2568 Anxiety in Teens</p>
+</div>
+
+<!-- ═══ COUNSELING PAGE ═══ -->
+<div id="page-counseling" class="page">
+  <div class="container" style="padding-top:100px;">
+    <h2 style="font-family:Prompt; text-align:center; margin-bottom:40px;">พื้นที่รับฟัง</h2>
+    <div style="max-width:600px; margin:0 auto; background:white; padding:30px; border-radius:20px;">
+      <p>โทรปรึกษาฟรี 24 ชั่วโมง</p>
+      <a href="tel:1323" style="display:block; font-size:2rem; color:var(--mint); margin:20px 0;">📞 1323</a>
+      <a href="tel:1667" style="display:block; font-size:2rem; color:var(--mint);">📞 1667</a>
+    </div>
+  </div>
+</div>
+
+<footer id="main-footer" class="hidden" style="padding:50px 20px; text-align:center;">
+  <p>© 2568 Anxiety in Teens — จัดทำโดยนักเรียนชั้น ม.5/1</p>
 </footer>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="this.classList.remove('show')">
   <div class="modal-box" onclick="event.stopPropagation()">
-    <h2 id="modal-title" style="margin-bottom:20px;"></h2>
+    <h2 id="modal-title"></h2>
     <div id="modal-content"></div>
-    <button class="btn-primary" style="margin-top:20px;" onclick="document.getElementById('modal-overlay').classList.remove('show')">ปิด</button>
+    <button class="btn-assess" onclick="document.getElementById('modal-overlay').classList.remove('show')">ปิด</button>
   </div>
 </div>
 
 <script>
   const q8Questions = [
-    { q: "1. วันนี้โดยรวมแล้ว คุณรู้สึกกับตัวเองยังไงมากที่สุด?", opts: ["A. สบายใจพอประมาณ", "B. เหนื่อยแต่ยังไหว", "C. ค่อนข้างหนักในใจ", "D. ว่างเปล่า"] },
-    { q: "2. ตอนนี้พลังใจของคุณอยู่ในระดับไหน?", opts: ["A. ยังมีแรงทำสิ่งต่างๆ", "B. มีบ้างแต่ต้องฝืน", "C. เหมือนแบตใกล้หมด", "D. หมดแรงไปเลย"] },
-    { q: "3. วันนี้ความคิดในหัวของคุณเป็นแบบไหน?", opts: ["A. ค่อนข้างนิ่ง", "B. มีเรื่องให้คิดบ้าง", "C. คิดวนจนเหนื่อย", "D. สับสน"] },
-    { q: "4. ตอนนี้คุณรู้สึกกับคนรอบตัวเป็นอย่างไร?", opts: ["A. ปกติ", "B. อยากอยู่กับบางคน", "C. อยากอยู่คนเดียว", "D. ห่างเหิน"] },
-    { q: "5. ถ้าเลือกได้ คุณต้องการอะไรมากที่สุด?", opts: ["A. ความสบายใจ", "B. การพักผ่อน", "C. คนที่เข้าใจ", "D. เวลาส่วนตัว"] },
-    { q: "6. ตอนนี้ร่างกายของคุณรู้สึกยังไงบ้าง?", opts: ["A. ปกติ", "B. เมื่อยล้า", "C. เหนื่อยเพลีย", "D. หนักอึ้ง"] },
-    { q: "7. วันนี้คุณรู้สึก “ดีกับตัวเอง” แค่ไหน?", opts: ["A. ดีมาก", "B. เฉยๆ", "C. ไม่มั่นใจ", "D. ไม่โอเค"] },
-    { q: "8. อยากบอกอะไรกับตัวเองตอนนี้?", opts: ["A. เก่งมากแล้ว", "B. ค่อยๆ ไป", "C. วันนี้เหนื่อยมาก", "D. ขอให้ผ่านไปได้"] }
+    { q: "1. วันนี้โดยรวมแล้ว คุณรู้สึกกับตัวเองยังไงมากที่สุด?", opts: ["A. สบายใจพอประมาณ", "B. เหนื่อยแต่ยังไหว", "C. ค่อนข้างหนักในใจ", "D. ว่างเปล่า / ไม่ค่อยรู้สึกอะไรชัดเจน"] },
+    { q: "2. ตอนนี้พลังใจของคุณอยู่ในระดับไหน?", opts: ["A. ยังมีแรงทำสิ่งต่างๆ", "B. มีบ้างแต่ต้องฝืนเล็กน้อย", "C. เหมือนแบตใกล้หมด", "D. รู้สึกหมดแรงไปเลย"] },
+    { q: "3. วันนี้ความคิดในหัวของคุณเป็นแบบไหน?", opts: ["A. ค่อนข้างนิ่งและชัดเจน", "B. มีเรื่องให้คิดบ้างเป็นช่วงๆ", "C. คิดวนหลายเรื่องจนเหนื่อย", "D. ค่อนข้างสับสนหรือว่างเปล่า"] },
+    { q: "4. ตอนนี้คุณรู้สึกกับคนรอบตัวเป็นอย่างไร?", opts: ["A. ปกติ สบายๆ", "B. อยากอยู่กับบางคนมากขึ้น", "C. อยากอยู่คนเดียวมากกว่า", "D. รู้สึกห่างเหินจากทุกคน"] },
+    { q: "5. ถ้าให้เลือกสิ่งที่คุณต้องการตอนนี้มากที่สุด คุณจะเลือกอะไร?", opts: ["A. ความสบายใจ", "B. การพักผ่อน", "C. คนที่เข้าใจ", "D. เวลาอยู่กับตัวเอง"] },
+    { q: "6. ตอนนี้ร่างกายของคุณรู้สึกยังไงบ้าง?", opts: ["A. ปกติ ไม่ค่อยมีปัญหา", "B. เมื่อยล้าบ้างเล็กน้อย", "C. ล้า เหนื่อย ไม่ค่อยสดชื่น", "D. หนัก เหมือนแบกอะไรอยู่"] },
+    { q: "7. วันนี้คุณรู้สึก “ดีกับตัวเอง” แค่ไหน?", opts: ["A. ค่อนข้างดี", "B. เฉยๆ ยังโอเค", "C. ไม่ค่อยมั่นใจตัวเอง", "D. ค่อนข้างไม่โอเคกับตัวเอง"] },
+    { q: "8. ถ้าวันนี้ให้คุณส่งข้อความถึงตัวเองได้ คุณอยากบอกว่าอะไร?", opts: ["A. “พอแล้วนะ เก่งมากแล้ว”", "B. “ค่อยๆไป ไม่ต้องรีบ”", "C. “วันนี้เหนื่อยมากเลยนะ”", "D. “ขอให้ผ่านวันนี้ไปได้ก็พอ”"] }
   ];
+
+  const q9Questions = ["1. รู้สึกเศร้า", "2. เบื่อหน่าย", "3. หลับยาก", "4. เหนื่อยล้า", "5. กินผิดปกติ", "6. โทษตัวเอง", "7. สมาธิสั้น", "8. ช้าลง", "9. อยากตาย"];
+
+  const articles = {
+    'dep-vs-sad': { title: 'ซึมเศร้า vs แค่เศร้า', content: '<p>เนื้อหาบทความเดิมของคุณที่นี่...</p>' },
+    '5-signs': { title: '5 สัญญาณเตือน', content: '<p>เนื้อหาบทความเดิมของคุณที่นี่...</p>' },
+    'panic': { title: 'โรคแพนิก', content: '<p>เนื้อหาบทความเดิมของคุณที่นี่...</p>' },
+    'burnout': { title: 'หมดไฟ', content: '<p>เนื้อหาบทความเดิมของคุณที่นี่...</p>' }
+  };
 
   function init() {
     const c8 = document.getElementById('q8-container');
@@ -371,27 +562,27 @@
     });
 
     const c9 = document.getElementById('q9-container');
-    const q9Qs = ["1. เศร้า", "2. เบื่อ", "3. นอนยาก", "4. เหนื่อย", "5. กินผิดปกติ", "6. โทษตัวเอง", "7. สมาธิสั้น", "8. ช้าลง", "9. ทำร้ายตัวเอง"];
-    q9Qs.forEach((q, i) => {
+    q9Questions.forEach((q, i) => {
       const div = document.createElement('div');
       div.className = 'q9-question';
       div.innerHTML = `<p>${q}</p><div class="q9-options">
         <div class="q9-opt" onclick="sel9(this, 0)">ไม่มี</div>
-        <div class="q9-opt" onclick="sel9(this, 1)">บางวัน</div>
-        <div class="q9-opt" onclick="sel9(this, 2)">บ่อย</div>
-        <div class="q9-opt" onclick="sel9(this, 3)">ทุกวัน</div>
+        <div class="q9-opt" onclick="select9(this, 1)">บางวัน</div>
+        <div class="q9-opt" onclick="select9(this, 2)">บ่อย</div>
+        <div class="q9-opt" onclick="select9(this, 3)">ทุกวัน</div>
       </div>`;
       c9.appendChild(div);
     });
   }
 
   function sel(el) { el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); }
-  function sel9(el, v) { el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); el.dataset.val = v; }
+  function select9(el, v) { el.parentElement.querySelectorAll('.q9-opt').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); el.dataset.val = v; }
+
+  function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+  function closeMenu() { document.getElementById('navLinks').classList.remove('active'); }
 
   function goToHome() {
-    const name = document.getElementById('reg-name').value;
-    if(!name) return alert('รบกวนกรอกชื่อก่อนนะ');
-    // ซ่อนหน้าลงชื่อ และแสดงส่วนอื่น
+    if(!document.getElementById('reg-name').value) return alert('รบกวนกรอกชื่อก่อนนะ');
     document.getElementById('page-register').style.display = 'none';
     document.getElementById('main-nav').classList.remove('hidden');
     document.getElementById('emergency-banner').classList.remove('hidden');
@@ -405,19 +596,16 @@
     window.scrollTo(0,0);
   }
 
-  function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
-  function closeMenu() { document.getElementById('navLinks').classList.remove('active'); }
-
   function submitAssessment() {
     document.getElementById('result-box').style.display = 'block';
     document.getElementById('result-title').innerText = "🌸 ขอบคุณที่ประเมินใจครับ";
-    document.getElementById('result-desc').innerText = "ผลประเมินสรุปสั้นๆ คือคุณควรดูแลตัวเองให้ดีนะ";
     window.scrollTo(0, document.body.scrollHeight);
   }
 
   function openModal(id) {
-    document.getElementById('modal-title').innerText = "บทความสุขภาพจิต";
-    document.getElementById('modal-content').innerText = "เนื้อหาบทความที่คุณต้องการอ่านจะปรากฏตรงนี้ตามต้นฉบับครับ";
+    const a = articles[id];
+    document.getElementById('modal-title').innerText = a.title;
+    document.getElementById('modal-content').innerHTML = a.content;
     document.getElementById('modal-overlay').classList.add('show');
   }
 

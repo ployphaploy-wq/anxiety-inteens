@@ -603,20 +603,52 @@ function selectQ9(opt,val){
   opt.classList.add('selected');
   opt.parentElement.dataset.value=val;
 }
+const SHEET_URL='https://script.google.com/a/macros/csw.ac.th/s/AKfycby0fj80tgkZ-Im09FlBeAOlC0mK1M3VM86TbOuQh7kfZnbHfHghHPx5jRaXGZ2mjsQ/exec';
+
+function sendToSheet(data){
+  fetch(SHEET_URL,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  }).catch(err=>console.log('Sheet error:',err));
+}
+
 function submitAssessment(){
   let score=0;const opts=document.querySelectorAll('.q9-options');let answered=0;
   opts.forEach(o=>{if(o.dataset.value!==undefined){score+=parseInt(o.dataset.value);answered++;}});
   if(answered<9){alert('กรุณาตอบข้อ PHQ-9 ให้ครบทุกข้อนะ');return;}
   const box=document.getElementById('result-box');
   box.style.display='block';box.className='result-box';
-  if(score<=6){box.classList.add('result-low');document.getElementById('result-title').innerText='✅ ระดับปกติ';document.getElementById('result-desc').innerText='คุณจัดการอารมณ์ได้ดี รักษาความสดใสนี้ไว้นะ!';}
-  else if(score<=12){box.classList.add('result-mid');document.getElementById('result-title').innerText='⚠️ ระดับปานกลาง';document.getElementById('result-desc').innerText='ช่วงนี้อาจจะเหนื่อยๆ ลองหาเวลาพักผ่อนดูบ้างนะ';}
-  else{box.classList.add('result-high');document.getElementById('result-title').innerText='🆘 ระดับสูง';document.getElementById('result-desc').innerText='แนะนำให้ลองปรึกษาผู้เชี่ยวชาญหรือคุยกับเราที่หน้าพื้นที่รับฟังนะ';}
+  let level='';
+  if(score<=6){box.classList.add('result-low');document.getElementById('result-title').innerText='✅ ระดับปกติ';document.getElementById('result-desc').innerText='คุณจัดการอารมณ์ได้ดี รักษาความสดใสนี้ไว้นะ!';level='ปกติ';}
+  else if(score<=12){box.classList.add('result-mid');document.getElementById('result-title').innerText='⚠️ ระดับปานกลาง';document.getElementById('result-desc').innerText='ช่วงนี้อาจจะเหนื่อยๆ ลองหาเวลาพักผ่อนดูบ้างนะ';level='ปานกลาง';}
+  else{box.classList.add('result-high');document.getElementById('result-title').innerText='🆘 ระดับสูง';document.getElementById('result-desc').innerText='แนะนำให้ลองปรึกษาผู้เชี่ยวชาญหรือคุยกับเราที่หน้าพื้นที่รับฟังนะ';level='สูง';}
   box.scrollIntoView({behavior:'smooth',block:'center'});
+  const name=document.getElementById('reg-name').value.trim();
+  const age=document.getElementById('reg-age').value.trim();
+  const moodBtn=document.querySelector('.mood-btn.selected');
+  const mood=moodBtn?moodBtn.innerText:'—';
+  const energy=document.getElementById('energy-val').innerText;
+  const now=new Date().toLocaleString('th-TH');
+  sendToSheet({date:now,name,age,score,level,mood,energy,message:'—'});
 }
+
 function submitVent(){
   const msg=document.getElementById('vent-text').value.trim();
   if(!msg){alert('กรุณาพิมพ์ข้อความก่อนนะ');return;}
+  const name=document.getElementById('reg-name').value.trim();
+  const age=document.getElementById('reg-age').value.trim();
+  const moodBtn=document.querySelector('.mood-btn.selected');
+  const mood=moodBtn?moodBtn.innerText:'—';
+  const energy=document.getElementById('energy-val').innerText;
+  const now=new Date().toLocaleString('th-TH');
+  const titleEl=document.getElementById('result-title');
+  const titleText=titleEl?titleEl.innerText:'—';
+  const level=titleText.includes('ปกติ')?'ปกติ':titleText.includes('ปานกลาง')?'ปานกลาง':titleText.includes('สูง')?'สูง':'—';
+  const opts=document.querySelectorAll('.q9-options');
+  let score=0;opts.forEach(o=>{if(o.dataset.value!==undefined)score+=parseInt(o.dataset.value);});
+  sendToSheet({date:now,name,age,score,level,mood,energy,message:msg});
   document.getElementById('vent-form-section').style.display='none';
   document.getElementById('vent-success').style.display='block';
 }
